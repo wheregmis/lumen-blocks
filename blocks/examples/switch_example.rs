@@ -1,5 +1,5 @@
 use dioxus::prelude::*;
-use dioxus_blocks::components::switch::{Switch, SwitchSize};
+use laminar_blocks::components::switch::{Switch, SwitchSize};
 
 fn main() {
     dioxus::launch(SwitchExample);

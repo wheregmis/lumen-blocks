@@ -1,5 +1,5 @@
 use dioxus_lib::prelude::*;
-use dioxus_blocks::components::avatar::{Avatar, AvatarFallback, AvatarImage};
+use laminar_blocks::components::avatar::{Avatar, AvatarFallback, AvatarImage};
 
 fn main() {
     // Initialize logger for debug builds

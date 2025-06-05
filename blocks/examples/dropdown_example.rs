@@ -1,10 +1,10 @@
 use dioxus::prelude::*;
-use dioxus_blocks::components::dropdown::{
+use laminar_blocks::components::dropdown::{
     Dropdown, DropdownTrigger, DropdownContent, DropdownItem,
     DropdownSize, DropdownLabel, DropdownSeparator, 
     DropdownCheckboxItem, DropdownRadioGroup, DropdownRadioItem
 };
-use dioxus_blocks::components::button::{Button, ButtonVariant};
+use laminar_blocks::components::button::{Button, ButtonVariant};
 use log;
 use lucide_dioxus::{Settings, User, LogOut, Mail, MessageSquare, Plus, CreditCard, Share2};
 

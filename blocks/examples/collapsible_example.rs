@@ -1,5 +1,5 @@
 use dioxus::prelude::*;
-use dioxus_blocks::components::collapsible::{
+use laminar_blocks::components::collapsible::{
     Collapsible, CollapsibleContent, CollapsibleTrigger,
 };
 

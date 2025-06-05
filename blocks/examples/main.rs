@@ -1,5 +1,5 @@
 use dioxus::prelude::*;
-use dioxus_blocks::components::collapsible::{
+use laminar_blocks::components::collapsible::{
     Collapsible, CollapsibleContent, CollapsibleTrigger,
 };
 use dioxus_primitives::separator::*;
@@ -29,7 +29,7 @@ mod collapsible_example;
 use collapsible_example::CollapsibleExample;
 mod aspect_ratio_example;
 use aspect_ratio_example::AspectRatioExample;
-use dioxus_blocks::components::toast::ToastProvider;
+use laminar_blocks::components::toast::ToastProvider;
 mod toast_example;
 use toast_example::ToastExamples;
 mod progress_example;

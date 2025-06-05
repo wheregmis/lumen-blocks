@@ -8,33 +8,50 @@
 
 Laminar is an ARIA-accessible, styled, opinionated component library for Dioxus based on the [shadcn](https://ui.shadcn.com) project, and built on top of the [Dioxus Primitives](https://github.com/DioxusLabs/components) unstyled components library.
 
+> [!IMPORTANT]
+> This library is still experimental. Expect bugs and breaking changes until a stable release is made.
 
-## Running the preview
+# Running the preview
 
-You can preview the components with:
+1. Ensure you have the [Dioxus toolchain](https://dioxuslabs.com/learn/0.6/getting_started/#).
+2. Run this to serve the base component preview app:
+
 ```
-dx serve -p dioxus-blocks --example main --platform web
+dx serve -p laminar-blocks --example main --platform web
 ```
 
-Or:
+# Development
+
+### Without nix-shell
+
+If you are making changes to components, you should also run this during development to keep tailwind classes up to date, on top of the `dx serve` command.
+
+```
+cd blocks && tailwindcss -i tailwind.css -o assets/tailwind.css --config tailwind.config.js --watch
+```
+
+### With nix-shell
+
+If you have [nix-shell](https://nixos.org), these two commands can be done more ergonomically:
+
+1. Run this command to get needed CLI tools:
+
+```
+nix-shell
+```
+
+2. Run this to serve the base component preview app:
 
 ```
 just dev-components
 ```
 
-if you have [just](https://just.systems).
-
-You should run this during development to keep tailwind classes up to date:
+3. Run this to keep tailwind classes up to date:
 
 ```
-tailwindcss -i ./tailwind.css -o ./assets/tailwind.css --config tailwind.config.js --watch
+just dev-components-tailwind
 ```
 
-or 
-
-```
-just
-```
 
 ## License
 This project is licensed under the [MIT license](./LICENSE).

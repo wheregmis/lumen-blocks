@@ -302,20 +302,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "dioxus-blocks"
-version = "0.0.1"
-dependencies = [
- "dioxus",
- "dioxus-lib",
- "dioxus-primitives",
- "dioxus-time",
- "env_logger",
- "log",
- "lucide-dioxus",
- "tracing",
-]
-
-[[package]]
 name = "dioxus-cli-config"
 version = "0.6.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1087,6 +1073,20 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b750dcadc39a09dbadd74e118f6dd6598df77fa01df0cfcdc52c28dece74528a"
 dependencies = [
  "bitflags",
+]
+
+[[package]]
+name = "laminar-blocks"
+version = "0.0.1"
+dependencies = [
+ "dioxus",
+ "dioxus-lib",
+ "dioxus-primitives",
+ "dioxus-time",
+ "env_logger",
+ "log",
+ "lucide-dioxus",
+ "tracing",
 ]
 
 [[package]]

@@ -1,5 +1,5 @@
 use dioxus::prelude::*;
-use dioxus_blocks::components::aspect_ratio::AspectRatio;
+use laminar_blocks::components::aspect_ratio::AspectRatio;
 
 fn main() {
     dioxus::launch(AspectRatioExample);

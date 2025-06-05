@@ -1,7 +1,7 @@
 use dioxus::prelude::*;
-use dioxus_blocks::components::label::{Label, LabelSize};
-use dioxus_blocks::components::input::{Input, InputSize, InputVariant};
-use dioxus_blocks::components::button::{Button, ButtonVariant};
+use laminar_blocks::components::label::{Label, LabelSize};
+use laminar_blocks::components::input::{Input, InputSize, InputVariant};
+use laminar_blocks::components::button::{Button, ButtonVariant};
 use lucide_dioxus::{Mail, Lock, CircleAlert};
 
 fn main() {

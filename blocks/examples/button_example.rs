@@ -1,5 +1,5 @@
 use dioxus::prelude::*;
-use dioxus_blocks::components::button::{Button, ButtonVariant, ButtonSize};
+use laminar_blocks::components::button::{Button, ButtonVariant, ButtonSize};
 use log;
 use lucide_dioxus::{ArrowLeft, ArrowRight, RefreshCw, Plus, Pencil, Trash, Search, X};
 

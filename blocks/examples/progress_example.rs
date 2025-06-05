@@ -1,5 +1,5 @@
 use dioxus::prelude::*;
-use dioxus_blocks::components::progress::{Progress, ProgressSize, ProgressVariant};
+use laminar_blocks::components::progress::{Progress, ProgressSize, ProgressVariant};
 
 #[component]
 pub fn ProgressExample() -> Element {

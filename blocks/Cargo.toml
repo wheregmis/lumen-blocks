@@ -1,14 +1,14 @@
 [package]
-name = "dioxus-blocks"
+name = "laminar-blocks"
 version = "0.0.1"
 edition = "2024"
 readme = "../README.md"
-keywords = ["gui", "dioxus", "components", "primitives"]
+keywords = ["gui", "dioxus", "components"]
 categories = ["gui", "wasm"]
 authors = ["Daniel D’Aquino <daniel@daquino.me>"]
 license = "MIT"
-homepage = "https://dioxuslabs.com"
-repository = "https://github.com/DioxusLabs/components"
+homepage = "https://github.com/Leaf-Computer/laminar-blocks"
+repository = "https://github.com/Leaf-Computer/laminar-blocks"
 
 [dependencies]
 dioxus-lib.workspace = true

@@ -1,5 +1,5 @@
 use dioxus::prelude::*;
-use dioxus_blocks::components::hover_card::{
+use laminar_blocks::components::hover_card::{
     HoverCard, HoverCardTrigger, HoverCardContent,
 };
 use dioxus_primitives::hover_card::{HoverCardAlign, HoverCardSide};

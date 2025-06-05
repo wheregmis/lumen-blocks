@@ -1,5 +1,5 @@
 use dioxus::prelude::*;
-use dioxus_blocks::components::checkbox::{Checkbox, CheckboxSize};
+use laminar_blocks::components::checkbox::{Checkbox, CheckboxSize};
 
 fn main() {
     dioxus::launch(CheckboxExample);

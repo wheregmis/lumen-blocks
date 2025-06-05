@@ -1,5 +1,5 @@
 use dioxus::prelude::*;
-use dioxus_blocks::components::context_menu::*;
+use laminar_blocks::components::context_menu::*;
 use lucide_dioxus::{Pencil, Plus, Trash, Settings, Share2, Search};
 
 fn main() {

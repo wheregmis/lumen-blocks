@@ -1,6 +1,6 @@
 use dioxus::prelude::*;
-use dioxus_blocks::components::button::{Button, ButtonVariant};
-use dioxus_blocks::components::toast::{use_toast, ToastOptions, ToastProvider, ToastType};
+use laminar_blocks::components::button::{Button, ButtonVariant};
+use laminar_blocks::components::toast::{use_toast, ToastOptions, ToastProvider, ToastType};
 use std::time::Duration;
 
 fn main() {

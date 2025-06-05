@@ -1,5 +1,5 @@
 use dioxus_lib::prelude::*;
-use dioxus_blocks::components::accordion::{Accordion, AccordionContent, AccordionItem, AccordionTrigger};
+use laminar_blocks::components::accordion::{Accordion, AccordionContent, AccordionItem, AccordionTrigger};
 
 fn main() {
     // Initialize logger for debug builds
