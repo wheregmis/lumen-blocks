@@ -9,7 +9,7 @@ pub use tooltip::HoverCardTooltipExample;
 pub mod basic {
     // ANCHOR: basic
     use dioxus::prelude::*;
-    use laminar_blocks::components::hover_card::{HoverCard, HoverCardContent, HoverCardTrigger};
+    use lumen_blocks::components::hover_card::{HoverCard, HoverCardContent, HoverCardTrigger};
 
     #[component]
     pub fn HoverCardBasicExample() -> Element {
@@ -41,7 +41,7 @@ pub mod basic {
 pub mod placement {
     // ANCHOR: placement
     use dioxus::prelude::*;
-    use laminar_blocks::components::hover_card::{
+    use lumen_blocks::components::hover_card::{
         HoverCard, HoverCardAlign, HoverCardContent, HoverCardSide, HoverCardTrigger,
     };
 
@@ -165,7 +165,7 @@ pub mod placement {
 pub mod profile {
     // ANCHOR: profile
     use dioxus::prelude::*;
-    use laminar_blocks::components::hover_card::{
+    use lumen_blocks::components::hover_card::{
         HoverCard, HoverCardAlign, HoverCardContent, HoverCardSide, HoverCardTrigger,
     };
 
@@ -227,10 +227,10 @@ pub mod profile {
 pub mod tooltip {
     // ANCHOR: tooltip
     use dioxus::prelude::*;
-    use laminar_blocks::components::hover_card::{
+    use lucide_dioxus::ExternalLink;
+    use lumen_blocks::components::hover_card::{
         HoverCard, HoverCardAlign, HoverCardContent, HoverCardSide, HoverCardTrigger,
     };
-    use lucide_dioxus::ExternalLink;
 
     #[component]
     pub fn HoverCardTooltipExample() -> Element {
@@ -265,10 +265,10 @@ pub mod tooltip {
 pub mod icon {
     // ANCHOR: icon
     use dioxus::prelude::*;
-    use laminar_blocks::components::hover_card::{
+    use lucide_dioxus::Info;
+    use lumen_blocks::components::hover_card::{
         HoverCard, HoverCardContent, HoverCardSide, HoverCardTrigger,
     };
-    use lucide_dioxus::Info;
 
     #[component]
     pub fn HoverCardIconExample() -> Element {

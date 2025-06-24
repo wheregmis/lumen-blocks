@@ -10,8 +10,8 @@ pub use states::DropdownStatesExample;
 pub mod basic {
     // ANCHOR: basic
     use dioxus::prelude::*;
-    use laminar_blocks::components::button::{Button, ButtonVariant};
-    use laminar_blocks::components::dropdown::{
+    use lumen_blocks::components::button::{Button, ButtonVariant};
+    use lumen_blocks::components::dropdown::{
         Dropdown, DropdownContent, DropdownItem, DropdownLabel, DropdownSeparator, DropdownTrigger,
     };
 
@@ -125,8 +125,8 @@ pub mod basic {
 pub mod states {
     // ANCHOR: states
     use dioxus::prelude::*;
-    use laminar_blocks::components::button::{Button, ButtonVariant};
-    use laminar_blocks::components::dropdown::{
+    use lumen_blocks::components::button::{Button, ButtonVariant};
+    use lumen_blocks::components::dropdown::{
         Dropdown, DropdownContent, DropdownItem, DropdownTrigger,
     };
 
@@ -218,11 +218,11 @@ pub mod states {
 pub mod icons {
     // ANCHOR: icons
     use dioxus::prelude::*;
-    use laminar_blocks::components::button::{Button, ButtonVariant};
-    use laminar_blocks::components::dropdown::{
+    use lucide_dioxus::{LogOut, Plus, Settings, Share2, User};
+    use lumen_blocks::components::button::{Button, ButtonVariant};
+    use lumen_blocks::components::dropdown::{
         Dropdown, DropdownContent, DropdownItem, DropdownTrigger,
     };
-    use lucide_dioxus::{LogOut, Plus, Settings, Share2, User};
 
     #[component]
     pub fn DropdownWithIconsExample() -> Element {
@@ -319,8 +319,8 @@ pub mod icons {
 pub mod alignment {
     // ANCHOR: alignment
     use dioxus::prelude::*;
-    use laminar_blocks::components::button::{Button, ButtonVariant};
-    use laminar_blocks::components::dropdown::{
+    use lumen_blocks::components::button::{Button, ButtonVariant};
+    use lumen_blocks::components::dropdown::{
         Dropdown, DropdownContent, DropdownItem, DropdownTrigger,
     };
 
@@ -449,8 +449,8 @@ pub mod alignment {
 pub mod checkbox_radio {
     // ANCHOR: checkbox_radio
     use dioxus::prelude::*;
-    use laminar_blocks::components::button::{Button, ButtonVariant};
-    use laminar_blocks::components::dropdown::{
+    use lumen_blocks::components::button::{Button, ButtonVariant};
+    use lumen_blocks::components::dropdown::{
         Dropdown, DropdownCheckboxItem, DropdownContent, DropdownLabel, DropdownRadioGroup,
         DropdownRadioItem, DropdownTrigger,
     };
@@ -582,11 +582,11 @@ pub mod checkbox_radio {
 pub mod complex {
     // ANCHOR: complex
     use dioxus::prelude::*;
-    use laminar_blocks::components::button::{Button, ButtonVariant};
-    use laminar_blocks::components::dropdown::{
+    use lucide_dioxus::{CreditCard, LogOut, Mail, MessageSquare, Settings, User};
+    use lumen_blocks::components::button::{Button, ButtonVariant};
+    use lumen_blocks::components::dropdown::{
         Dropdown, DropdownContent, DropdownItem, DropdownLabel, DropdownSeparator, DropdownTrigger,
     };
-    use lucide_dioxus::{CreditCard, LogOut, Mail, MessageSquare, Settings, User};
 
     #[component]
     pub fn ComplexDropdownExample() -> Element {

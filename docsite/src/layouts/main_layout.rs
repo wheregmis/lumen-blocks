@@ -1,6 +1,6 @@
 use dioxus::prelude::*;
 use dioxus_router::prelude::{use_route, Outlet};
-use laminar_blocks::components::side_sheet::SideSheet;
+use lumen_blocks::components::side_sheet::SideSheet;
 
 use crate::components::navbar::Navbar;
 use crate::Route;
@@ -9,9 +9,9 @@ use crate::Route;
 pub fn MainLayout() -> Element {
     let route = use_route::<Route>();
     let title = match route {
-        Route::Home { .. } => "Laminar Blocks - Home",
-        Route::Docs01 { .. } => "Laminar Blocks - Documentation",
-        Route::Err404 { .. } => "Laminar Blocks - Page Not Found",
+        Route::Home { .. } => "Lumen Blocks - Home",
+        Route::Docs01 { .. } => "Lumen Blocks - Documentation",
+        Route::Err404 { .. } => "Lumen Blocks - Page Not Found",
     };
 
     rsx! {

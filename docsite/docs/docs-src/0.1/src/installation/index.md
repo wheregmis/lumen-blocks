@@ -1,10 +1,10 @@
 # Installation
 
-This guide will walk you through the process of installing and setting up Laminar Blocks in your Dioxus project.
+This guide will walk you through the process of installing and setting up Lumen Blocks in your Dioxus project.
 
 ## Prerequisites
 
-Before installing Laminar Blocks, ensure you have:
+Before installing Lumen Blocks, ensure you have:
 
 - [Rust](https://www.rust-lang.org/tools/install) installed
 - [Dioxus CLI](https://dioxuslabs.com/learn/0.6/getting_started/#installing-the-cli) installed
@@ -13,19 +13,19 @@ Before installing Laminar Blocks, ensure you have:
 
 Please refer to the official Dioxus docs to find out how to setup a project with Tailwind: [Dioxus Tailwind guide](https://dioxuslabs.com/learn/0.6/cookbook/tailwind)
 
-## Installing Laminar Blocks
+## Installing Lumen Blocks
 
-You have two options for installing Laminar Blocks:
+You have two options for installing Lumen Blocks:
 
 ### Option 1: Add as a Dependency
 
-1. Add Laminar Blocks to your `Cargo.toml`:
+1. Add Lumen Blocks to your `Cargo.toml`:
 
 ```toml
 [dependencies]
 dioxus = "0.6.0"
 dioxus-web = "0.6.0"
-laminar-blocks = "0.1.0"
+lumen-blocks = "0.1.0"
 ```
 
 2. Create a `tailwind.css` file in your project's root or assets directory, with the following content:
@@ -112,7 +112,7 @@ body {
 }
 ```
 
-3. Update your `tailwind.config.js` to include the Laminar Blocks components:
+3. Update your `tailwind.config.js` to include the Lumen Blocks components:
 
 ```js
 /** @type {import('tailwindcss').Config} */
@@ -120,8 +120,8 @@ module.exports = {
   mode: "all",
   content: [
     "./src/**/*.{rs,html,css}",
-    // Include Laminar Blocks components
-    "${process.env.HOME}/.cargo/registry/src/**/laminar-blocks-*/src/**/*.{rs,html,css}"
+    // Include Lumen Blocks components
+    "${process.env.HOME}/.cargo/registry/src/**/lumen-blocks-*/src/**/*.{rs,html,css}"
   ],
   theme: {
     extend: {
@@ -241,7 +241,7 @@ my-project/
 ├── Cargo.toml         # Workspace manifest
 ├── app/               # Your application
 │   └── Cargo.toml    # App manifest
-└── laminar-blocks/    # Local copy of the laminar-blocks crate
+└── lumen-blocks/    # Local copy of the lumen-blocks crate
     └── ...
 ```
 
@@ -251,17 +251,17 @@ my-project/
 [workspace]
 members = [
     "app",
-    "laminar-blocks"
+    "lumen-blocks"
 ]
 
 [workspace.dependencies]
-laminar-blocks = { path = "./laminar-blocks" }
+lumen-blocks = { path = "./lumen-blocks" }
 ```
 
-3. Clone Laminar Blocks into your workspace:
+3. Clone Lumen Blocks into your workspace:
 
 ```bash
-git clone https://github.com/Leaf-Computer/laminar-blocks.git
+git clone https://github.com/Leaf-Computer/lumen-blocks.git
 ```
 
 4. Update your app's `Cargo.toml` to reference the local copy:
@@ -270,12 +270,12 @@ git clone https://github.com/Leaf-Computer/laminar-blocks.git
 [dependencies]
 dioxus = "0.6.0"
 dioxus-web = "0.6.0"
-laminar-blocks.workspace = true
+lumen-blocks.workspace = true
 ```
 
 5. Create a `tailwind.css` file in your app directory (same as in Option 1).
 
-6. Update your `tailwind.config.js` to include the local Laminar Blocks components:
+6. Update your `tailwind.config.js` to include the local Lumen Blocks components:
 
 ```js
 /** @type {import('tailwindcss').Config} */
@@ -283,8 +283,8 @@ module.exports = {
   mode: "all",
   content: [
     "./src/**/*.{rs,html,css}",
-    // Include local Laminar Blocks components
-    "../laminar-blocks/**/*.{rs,html,css}"
+    // Include local Lumen Blocks components
+    "../lumen-blocks/**/*.{rs,html,css}"
   ],
   // Rest of the configuration same as Option 1
   // ...
@@ -297,18 +297,18 @@ module.exports = {
 npx tailwindcss -i ./tailwind.css -o ./assets/tailwind.css --watch
 ```
 
-## Using Laminar Blocks
+## Using Lumen Blocks
 
-After installation, you can import and use Laminar Blocks components in your Dioxus application:
+After installation, you can import and use Lumen Blocks components in your Dioxus application:
 
 ```rust
 use dioxus::prelude::*;
-use laminar_blocks::button::Button;
+use lumen_blocks::button::Button;
 
 fn App() -> Element {
     rsx! {
         div {
-            h1 { "Hello, Laminar Blocks!" }
+            h1 { "Hello, Lumen Blocks!" }
             Button {
                 variant: "default",
                 onclick: move |_| {
@@ -325,11 +325,11 @@ fn App() -> Element {
 
 If Tailwind CSS classes aren't being applied:
 
-1. Ensure your `tailwind.config.js` correctly points to both your source files and the Laminar Blocks components.
+1. Ensure your `tailwind.config.js` correctly points to both your source files and the Lumen Blocks components.
 2. Make sure you're generating the Tailwind CSS output file and including it in your application.
 3. Check for any path errors in the `content` array of your Tailwind configuration.
 
 If components aren't rendering correctly:
 
 1. Verify you've imported the components correctly.
-2. Ensure you're using the latest compatible versions of Dioxus and Laminar Blocks.
+2. Ensure you're using the latest compatible versions of Dioxus and Lumen Blocks.

@@ -8,8 +8,8 @@ pub use with_radio::ContextMenuWithRadioExample;
 pub mod basic {
     // ANCHOR: basic
     use dioxus::prelude::*;
-    use laminar_blocks::components::context_menu::*;
     use lucide_dioxus::{Pencil, Plus, Trash};
+    use lumen_blocks::components::context_menu::*;
 
     #[component]
     pub fn BasicContextMenuExample() -> Element {
@@ -69,8 +69,8 @@ pub mod basic {
 pub mod with_labels {
     // ANCHOR: with_labels
     use dioxus::prelude::*;
-    use laminar_blocks::components::context_menu::*;
     use lucide_dioxus::{Search, Settings, Share2};
+    use lumen_blocks::components::context_menu::*;
 
     #[component]
     pub fn ContextMenuWithLabelsExample() -> Element {
@@ -131,7 +131,7 @@ pub mod with_labels {
 pub mod with_checkboxes {
     // ANCHOR: with_checkboxes
     use dioxus::prelude::*;
-    use laminar_blocks::components::context_menu::*;
+    use lumen_blocks::components::context_menu::*;
 
     #[component]
     pub fn ContextMenuWithCheckboxesExample() -> Element {
@@ -202,7 +202,7 @@ pub mod with_checkboxes {
 pub mod with_radio {
     // ANCHOR: with_radio
     use dioxus::prelude::*;
-    use laminar_blocks::components::context_menu::*;
+    use lumen_blocks::components::context_menu::*;
 
     #[component]
     pub fn ContextMenuWithRadioExample() -> Element {
@@ -279,7 +279,7 @@ pub mod with_radio {
 pub mod disabled {
     // ANCHOR: disabled
     use dioxus::prelude::*;
-    use laminar_blocks::components::context_menu::*;
+    use lumen_blocks::components::context_menu::*;
 
     #[component]
     pub fn DisabledContextMenuExample() -> Element {

@@ -1,6 +1,6 @@
 [book.en]
-title = "Laminar Blocks Documentation"
-description = "Get started with "
+title = "Lumen Blocks Documentation"
+description = "Get started with Lumen blocks"
 authors = ["Daniel D’Aquino"]
 
 [rust]

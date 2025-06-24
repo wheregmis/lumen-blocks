@@ -27,10 +27,10 @@ enum Route {
     Err404 { segments: Vec<String> },
 }
 
-const FAVICON: Asset = asset!("/assets/laminar-logo-small.png");
+const FAVICON: Asset = asset!("/assets/lumen-logo-small.png");
 const TAILWIND_CSS: Asset = asset!("/assets/tailwind.css");
-const LAMINAR_LOGO: Asset = asset!("/assets/laminar-logo.png");
-const LAMINAR_LOGO_SMALL: Asset = asset!("/assets/laminar-logo-small.png");
+const LUMEN_LOGO: Asset = asset!("/assets/lumen-logo.png");
+const LUMEN_LOGO_SMALL: Asset = asset!("/assets/lumen-logo-small.png");
 
 fn main() {
     dioxus::launch(App);

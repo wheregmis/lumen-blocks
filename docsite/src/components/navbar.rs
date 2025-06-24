@@ -1,11 +1,11 @@
 use crate::Route;
-use crate::LAMINAR_LOGO_SMALL;
+use crate::LUMEN_LOGO_SMALL;
 use ::docs::docs::router_01::{BookRoute, LAZY_BOOK};
 use dioxus::prelude::*;
 use docs::docs;
-use laminar_blocks::components::button::{Button, ButtonVariant};
-use laminar_blocks::components::side_sheet::*;
 use lucide_dioxus::Menu;
+use lumen_blocks::components::button::{Button, ButtonVariant};
+use lumen_blocks::components::side_sheet::*;
 use mdbook_shared::SummaryItem;
 
 #[component]
@@ -39,8 +39,8 @@ pub fn Navbar() -> Element {
                     class: "text-foreground hover:text-primary transition-colors",
                     div {
                         class: "flex items-center gap-2",
-                        img { class: "w-8 h-8", src: LAMINAR_LOGO_SMALL }
-                        span { class: "text-xl font-bold text-foreground", "Laminar Blocks" }
+                        img { class: "w-8 h-8", src: LUMEN_LOGO_SMALL }
+                        span { class: "text-xl font-bold text-foreground", "Lumen Blocks" }
                     }
                 }
                 // Desktop navigation links

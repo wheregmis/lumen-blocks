@@ -1,10 +1,10 @@
 # Introduction
 
-Welcome to Laminar Blocks - a styled, opinionated component library for Dioxus based on the [shadcn](https://ui.shadcn.com) project, and built on top of the [Dioxus Primitives](https://github.com/DioxusLabs/components) unstyled components library.
+Welcome to Lumen Blocks - a styled, opinionated component library for Dioxus based on the [shadcn](https://ui.shadcn.com) project, and built on top of the [Dioxus Primitives](https://github.com/DioxusLabs/components) unstyled components library.
 
-## What is Laminar Blocks?
+## What is Lumen Blocks?
 
-Laminar Blocks provides a collection of pre-styled UI components for Rust's Dioxus framework. These components follow modern design principles and accessibility guidelines, making it easy to build beautiful, functional user interfaces in your Dioxus applications.
+Lumen Blocks provides a collection of pre-styled UI components for Rust's Dioxus framework. These components follow modern design principles and accessibility guidelines, making it easy to build beautiful, functional user interfaces in your Dioxus applications.
 
 ## Features
 
@@ -16,12 +16,12 @@ Laminar Blocks provides a collection of pre-styled UI components for Rust's Diox
 
 ## Getting Started
 
-Ready to use Laminar Blocks in your project? Check out our [Installation Guide](installation/index.md) to get started.
+Ready to use Lumen Blocks in your project? Check out our [Installation Guide](installation/index.md) to get started.
 
 ## Component Showcase
 
-Laminar Blocks offers a variety of components to build your application's UI. Explore the sidebar to see detailed documentation for each component, including props, variants, and usage examples.
+Lumen Blocks offers a variety of components to build your application's UI. Explore the sidebar to see detailed documentation for each component, including props, variants, and usage examples.
 
 ## Contributing
 
-Laminar Blocks is open to contributions! Whether you're fixing bugs, improving documentation, or proposing new components, your help is welcome. Check out the [GitHub repository](https://github.com/Leaf-Computer/laminar-blocks) to get involved.
+Lumen Blocks is open to contributions! Whether you're fixing bugs, improving documentation, or proposing new components, your help is welcome. Check out the [GitHub repository](https://github.com/Leaf-Computer/lumen-blocks) to get involved.

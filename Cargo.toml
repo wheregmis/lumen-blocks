@@ -3,7 +3,7 @@ resolver = "3"
 members = ["blocks", "docsite"]
 
 [workspace.dependencies]
-laminar-blocks = { path = "blocks" }
+lumen-blocks = { path = "blocks" }
 
 dioxus = "0.6"
 dioxus-lib = "0.6"

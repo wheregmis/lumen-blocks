@@ -5,8 +5,8 @@ pub use positions::SideSheetPositionsExample;
 pub mod basic {
     // ANCHOR: basic
     use dioxus::prelude::*;
-    use laminar_blocks::components::button::{Button, ButtonVariant};
-    use laminar_blocks::components::side_sheet::{
+    use lumen_blocks::components::button::{Button, ButtonVariant};
+    use lumen_blocks::components::side_sheet::{
         SideSheet, SideSheetBody, SideSheetClose, SideSheetCloseButton, SideSheetContent,
         SideSheetDescription, SideSheetFooter, SideSheetHeader, SideSheetTitle, SideSheetTrigger,
     };
@@ -69,12 +69,12 @@ pub mod basic {
 pub mod positions {
     // ANCHOR: positions
     use dioxus::prelude::*;
-    use laminar_blocks::components::button::{Button, ButtonVariant};
-    use laminar_blocks::components::side_sheet::{
+    use lucide_dioxus::Menu;
+    use lumen_blocks::components::button::{Button, ButtonVariant};
+    use lumen_blocks::components::side_sheet::{
         SideSheet, SideSheetBody, SideSheetCloseButton, SideSheetContent, SideSheetDescription,
         SideSheetHeader, SideSheetSide, SideSheetTitle, SideSheetTrigger,
     };
-    use lucide_dioxus::Menu;
 
     #[component]
     pub fn SideSheetPositionsExample() -> Element {

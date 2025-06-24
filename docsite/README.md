@@ -1,6 +1,6 @@
-# Laminar Blocks Sample App
+# Lumen Blocks Sample App
 
-A comprehensive demonstration application showcasing the capabilities of the `laminar-blocks` component library for Dioxus. This sample app demonstrates real-world usage patterns and provides a complete example of building modern web applications with the blocks library.
+A comprehensive demonstration application showcasing the capabilities of the `lumen-blocks` component library for Dioxus. This sample app demonstrates real-world usage patterns and provides a complete example of building modern web applications with the blocks library.
 
 ## 🏗️ Project Structure
 
@@ -195,14 +195,14 @@ This sample can serve as a starting point for your own applications:
 
 ## 📚 Next Steps
 
-- Explore the [laminar-blocks documentation](../blocks/) for detailed component APIs
+- Explore the [lumen-blocks documentation](../blocks/) for detailed component APIs
 - Check out individual component examples in the showcase section
 - Use this sample as a template for your own Dioxus applications
 - Contribute improvements or additional examples
 
 ## 🤝 Contributing
 
-This sample app is part of the laminar-blocks project. Contributions are welcome:
+This sample app is part of the lumen-blocks project. Contributions are welcome:
 
 - Report bugs or issues
 - Suggest new component demonstrations

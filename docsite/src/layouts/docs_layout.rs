@@ -58,9 +58,9 @@ pub fn DocsLayout() -> Element {
             .next()
             .unwrap_or_else(|| "Documentation".to_string());
 
-        format!("Laminar Blocks - {}", page_title)
+        format!("Lumen Blocks - {}", page_title)
     } else {
-        "Laminar Blocks - Documentation".to_string()
+        "Lumen Blocks - Documentation".to_string()
     };
 
     rsx! {

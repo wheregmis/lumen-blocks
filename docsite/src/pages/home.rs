@@ -12,15 +12,15 @@ use docs::hover_card_examples::HoverCardProfileExample;
 use docs::side_sheet_examples::BasicSideSheetExample;
 use docs::switch_examples::SwitchWithTextExample;
 use docs::toast_examples::ToastWithDescriptionsExample;
-use laminar_blocks::components::{
+use lucide_dioxus::{Check, PersonStanding, Wind};
+use lumen_blocks::components::{
     button::{Button, ButtonSize, ButtonVariant},
     toast::ToastProvider,
 };
-use lucide_dioxus::{Check, PersonStanding, Wind};
 
 use crate::components::{ComponentCard, FeatureCard};
 use crate::Route;
-use crate::LAMINAR_LOGO;
+use crate::LUMEN_LOGO;
 
 #[component]
 pub fn Home() -> Element {
@@ -29,8 +29,8 @@ pub fn Home() -> Element {
 
             div { class: "max-w-6xl mx-auto px-6 py-12",
                 div { class: "text-center mb-12",
-                    img { class: "w-48 h-48 mx-auto mb-4", src: LAMINAR_LOGO, alt: "Laminar Logo" }
-                    h1 { class: "text-4xl font-bold text-foreground mb-4", "Laminar Blocks" }
+                    img { class: "w-48 h-48 mx-auto mb-4", src: LUMEN_LOGO, alt: "Lumen Logo" }
+                    h1 { class: "text-4xl font-bold text-foreground mb-4", "Lumen Blocks" }
                     p { class: "text-xl text-muted-foreground mb-8",
                         "Styled, opinionated UI components for building Dioxus applications"
                     }

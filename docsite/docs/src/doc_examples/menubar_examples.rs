@@ -7,7 +7,7 @@ pub use with_icons::MenubarWithIconsExample;
 pub mod basic {
     // ANCHOR: basic
     use dioxus::prelude::*;
-    use laminar_blocks::components::menubar::{
+    use lumen_blocks::components::menubar::{
         Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarTrigger,
     };
 
@@ -88,7 +88,7 @@ pub mod basic {
 pub mod disabled {
     // ANCHOR: disabled
     use dioxus::prelude::*;
-    use laminar_blocks::components::menubar::{
+    use lumen_blocks::components::menubar::{
         Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarTrigger,
     };
 
@@ -171,10 +171,10 @@ pub mod disabled {
 pub mod with_icons {
     // ANCHOR: with_icons
     use dioxus::prelude::*;
-    use laminar_blocks::components::menubar::{
+    use lucide_dioxus::{Clipboard, Copy, FileText, FolderOpen, Save, Scissors};
+    use lumen_blocks::components::menubar::{
         Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarTrigger,
     };
-    use lucide_dioxus::{Clipboard, Copy, FileText, FolderOpen, Save, Scissors};
 
     #[component]
     pub fn MenubarWithIconsExample() -> Element {

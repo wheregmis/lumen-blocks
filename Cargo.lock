@@ -1383,8 +1383,8 @@ version = "0.0.0"
 dependencies = [
  "dioxus",
  "dioxus-autofmt",
- "laminar-blocks",
  "lucide-dioxus",
+ "lumen-blocks",
  "mdbook-gen",
  "mdbook-shared",
  "prettyplease",
@@ -1400,8 +1400,8 @@ dependencies = [
  "dioxus",
  "dioxus-time",
  "docs",
- "laminar-blocks",
  "lucide-dioxus",
+ "lumen-blocks",
  "mdbook-shared",
 ]
 
@@ -2582,20 +2582,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "laminar-blocks"
-version = "0.1.0"
-dependencies = [
- "dioxus",
- "dioxus-lib",
- "dioxus-primitives",
- "dioxus-time",
- "env_logger",
- "log",
- "lucide-dioxus",
- "tracing",
-]
-
-[[package]]
 name = "lazy-js-bundle"
 version = "0.6.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2723,6 +2709,20 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e0508f42ea2c5ae9d3d3ab53d13c201ba7454cc0a8df436978c7215f2016393c"
 dependencies = [
  "dioxus",
+]
+
+[[package]]
+name = "lumen-blocks"
+version = "0.1.0"
+dependencies = [
+ "dioxus",
+ "dioxus-lib",
+ "dioxus-primitives",
+ "dioxus-time",
+ "env_logger",
+ "log",
+ "lucide-dioxus",
+ "tracing",
 ]
 
 [[package]]

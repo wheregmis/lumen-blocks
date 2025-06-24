@@ -6,7 +6,7 @@ pub use multiple::MultipleOpenAccordionExample;
 pub mod basic {
     // ANCHOR: basic
     use dioxus::prelude::*;
-    use laminar_blocks::components::accordion::{
+    use lumen_blocks::components::accordion::{
         Accordion, AccordionContent, AccordionItem, AccordionTrigger,
     };
 
@@ -55,7 +55,7 @@ pub mod basic {
 pub mod multiple {
     // ANCHOR: multiple
     use dioxus::prelude::*;
-    use laminar_blocks::components::accordion::{
+    use lumen_blocks::components::accordion::{
         Accordion, AccordionContent, AccordionItem, AccordionTrigger,
     };
 
