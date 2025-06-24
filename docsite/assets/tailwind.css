@@ -689,10 +689,6 @@ video {
   z-index: 50;
 }
 
-.col-span-2 {
-  grid-column: span 2 / span 2;
-}
-
 .col-span-1 {
   grid-column: span 1 / span 1;
 }
@@ -735,6 +731,10 @@ video {
 
 .mb-2 {
   margin-bottom: 0.5rem;
+}
+
+.mb-24 {
+  margin-bottom: 6rem;
 }
 
 .mb-3 {
@@ -787,10 +787,6 @@ video {
 
 .mt-4 {
   margin-top: 1rem;
-}
-
-.mb-24 {
-  margin-bottom: 6rem;
 }
 
 .block {
@@ -1023,10 +1019,6 @@ video {
   width: 100%;
 }
 
-.w-96 {
-  width: 24rem;
-}
-
 .min-w-\[10rem\] {
   min-width: 10rem;
 }
@@ -1205,10 +1197,6 @@ video {
 
 .flex-col {
   flex-direction: column;
-}
-
-.flex-col-reverse {
-  flex-direction: column-reverse;
 }
 
 .flex-wrap {
@@ -1519,10 +1507,6 @@ video {
   background-color: rgb(var(--secondary));
 }
 
-.bg-secondary\/20 {
-  background-color: rgb(var(--secondary) / 0.2);
-}
-
 .bg-secondary\/50 {
   background-color: rgb(var(--secondary) / 0.5);
 }
@@ -1617,20 +1601,12 @@ video {
   padding: 1rem;
 }
 
-.p-48 {
-  padding: 12rem;
-}
-
 .p-5 {
   padding: 1.25rem;
 }
 
 .p-6 {
   padding: 1.5rem;
-}
-
-.p-8 {
-  padding: 2rem;
 }
 
 .px-1 {
@@ -2239,10 +2215,6 @@ https://github.com/shadcn-ui/ui/blob/2773f9e2e29cf67e521632d15d1ba302a82e39e9/LI
   background-color: rgb(var(--muted) / 0.5);
 }
 
-.hover\:bg-primary:hover {
-  background-color: rgb(var(--primary));
-}
-
 .hover\:bg-primary\/90:hover {
   background-color: rgb(var(--primary) / 0.9);
 }
@@ -2265,10 +2237,6 @@ https://github.com/shadcn-ui/ui/blob/2773f9e2e29cf67e521632d15d1ba302a82e39e9/LI
 
 .hover\:text-primary:hover {
   color: rgb(var(--primary));
-}
-
-.hover\:text-primary-foreground:hover {
-  color: rgb(var(--primary-foreground));
 }
 
 .hover\:underline:hover {
@@ -2415,36 +2383,18 @@ https://github.com/shadcn-ui/ui/blob/2773f9e2e29cf67e521632d15d1ba302a82e39e9/LI
     max-width: 24rem;
   }
 
-  .sm\:flex-row {
-    flex-direction: row;
-  }
-
-  .sm\:justify-end {
-    justify-content: flex-end;
-  }
-
-  .sm\:space-x-2 > :not([hidden]) ~ :not([hidden]) {
-    --tw-space-x-reverse: 0;
-    margin-right: calc(0.5rem * var(--tw-space-x-reverse));
-    margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
-  }
-
   .sm\:text-left {
     text-align: left;
   }
 }
 
 @media (min-width: 768px) {
-  .md\:col-span-2 {
-    grid-column: span 2 / span 2;
-  }
-
-  .md\:col-span-3 {
-    grid-column: span 3 / span 3;
-  }
-
   .md\:col-span-1 {
     grid-column: span 1 / span 1;
+  }
+
+  .md\:col-span-2 {
+    grid-column: span 2 / span 2;
   }
 
   .md\:row-span-2 {
@@ -2459,20 +2409,16 @@ https://github.com/shadcn-ui/ui/blob/2773f9e2e29cf67e521632d15d1ba302a82e39e9/LI
     display: none;
   }
 
-  .md\:grid-cols-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
 @media (min-width: 1024px) {
-  .lg\:col-span-2 {
-    grid-column: span 2 / span 2;
-  }
-
   .lg\:col-span-1 {
     grid-column: span 1 / span 1;
   }
