@@ -1,6 +1,5 @@
 #![allow(non_snake_case)]
 
-
 pub use basic::BasicCollapsibleExample;
 pub use multiple::MultipleCollapsiblesExample;
 pub use nested::NestedCollapsibleExample;
@@ -11,7 +10,7 @@ pub mod basic {
     use laminar_blocks::components::collapsible::{
         Collapsible, CollapsibleContent, CollapsibleTrigger,
     };
-    
+
     #[component]
     pub fn BasicCollapsibleExample() -> Element {
         rsx! {
@@ -19,7 +18,7 @@ pub mod basic {
                 CollapsibleTrigger {
                     "What is a collapsible component?"
                 }
-                
+
                 CollapsibleContent {
                     div {
                         class: "space-y-3 p-4",
@@ -40,7 +39,7 @@ pub mod multiple {
     use laminar_blocks::components::collapsible::{
         Collapsible, CollapsibleContent, CollapsibleTrigger,
     };
-    
+
     #[component]
     pub fn MultipleCollapsiblesExample() -> Element {
         rsx! {
@@ -49,7 +48,7 @@ pub mod multiple {
                     CollapsibleTrigger {
                         "When should I use collapsible components?"
                     }
-                    
+
                     CollapsibleContent {
                         div {
                             class: "space-y-2 p-4",
@@ -63,12 +62,12 @@ pub mod multiple {
                         }
                     }
                 }
-                
+
                 Collapsible {
                     CollapsibleTrigger {
                         "Are collapsible components accessible?"
                     }
-                    
+
                     CollapsibleContent {
                         div {
                             class: "space-y-2 p-4",
@@ -82,12 +81,12 @@ pub mod multiple {
                         }
                     }
                 }
-                
+
                 Collapsible {
                     CollapsibleTrigger {
                         "Can I customize the styling?"
                     }
-                    
+
                     CollapsibleContent {
                         div {
                             class: "space-y-2 p-4",
@@ -113,7 +112,7 @@ pub mod nested {
     use laminar_blocks::components::collapsible::{
         Collapsible, CollapsibleContent, CollapsibleTrigger,
     };
-    
+
     #[component]
     pub fn NestedCollapsibleExample() -> Element {
         rsx! {
@@ -121,36 +120,36 @@ pub mod nested {
                 CollapsibleTrigger {
                     "Advanced collapsible patterns"
                 }
-                
+
                 CollapsibleContent {
                     div {
                         class: "p-4 space-y-4",
                         p { "Collapsibles can be nested to create more complex disclosure patterns:" }
-                        
+
                         // Nested collapsible
                         Collapsible {
                             class: "ml-4 border-l-2 pl-4 border-gray-200",
-                            
+
                             CollapsibleTrigger {
                                 class: "text-sm",
                                 "Nested collapsible example"
                             }
-                            
+
                             CollapsibleContent {
                                 div {
                                     class: "p-3 text-sm",
                                     p { "This is a nested collapsible component." }
                                     p { class: "mt-2", "You can nest these as deeply as needed for your information architecture." }
-                                    
+
                                     // Another level of nesting
                                     Collapsible {
                                         class: "ml-4 border-l-2 pl-4 border-gray-200 mt-3",
-                                        
+
                                         CollapsibleTrigger {
                                             class: "text-xs",
                                             "Even deeper nesting"
                                         }
-                                        
+
                                         CollapsibleContent {
                                             div {
                                                 class: "p-2 text-xs",
@@ -176,7 +175,7 @@ pub mod example {
     use laminar_blocks::components::collapsible::{
         Collapsible, CollapsibleContent, CollapsibleTrigger,
     };
-    
+
     #[component]
     pub fn CollapsibleExample() -> Element {
         rsx! {
@@ -184,7 +183,7 @@ pub mod example {
                 CollapsibleTrigger {
                     "What is a collapsible component?"
                 }
-                
+
                 CollapsibleContent {
                     div {
                         class: "space-y-3",

@@ -31,7 +31,6 @@ pub fn Accordion(props: AccordionProps) -> Element {
     let accordion_classes = vec![
         // Base classes
         "w-full",
-        
         // Additional classes passed by the user
         props.class.as_deref().unwrap_or(""),
     ]
@@ -39,13 +38,13 @@ pub fn Accordion(props: AccordionProps) -> Element {
     .filter(|s| !s.is_empty())
     .collect::<Vec<_>>()
     .join(" ");
-    
+
     rsx! {
         PrimitiveAccordion {
             class: accordion_classes,
             allow_multiple_open: props.allow_multiple_open,
             horizontal: props.horizontal,
-            
+
             {props.children}
         }
     }
@@ -82,14 +81,11 @@ pub struct AccordionItemProps {
 pub fn AccordionItem(props: AccordionItemProps) -> Element {
     // Generate unique ID if not provided
     let item_id = use_unique_id();
-    let id_value = use_memo(move || {
-        props.id.clone().unwrap_or_else(|| item_id.peek().clone())
-    });
-    
+    let id_value = use_memo(move || props.id.clone().unwrap_or_else(|| item_id.peek().clone()));
+
     let item_classes = vec![
         // Base classes
         "group border-b last:border-b-0 border-border",
-        
         // Additional classes passed by the user
         props.class.as_deref().unwrap_or(""),
     ]
@@ -97,10 +93,10 @@ pub fn AccordionItem(props: AccordionItemProps) -> Element {
     .filter(|s| !s.is_empty())
     .collect::<Vec<_>>()
     .join(" ");
-    
+
     let on_change = props.on_change.clone();
     let on_trigger_click = props.on_trigger_click.clone();
-    
+
     rsx! {
         PrimitiveAccordionItem {
             id: id_value.peek().clone(),
@@ -116,7 +112,7 @@ pub fn AccordionItem(props: AccordionItemProps) -> Element {
                     handler.call(());
                 }
             },
-            
+
             {props.children}
         }
     }
@@ -143,13 +139,16 @@ pub fn AccordionTrigger(props: AccordionTriggerProps) -> Element {
     // Generate unique ID if not provided
     let trigger_id = use_unique_id();
     let id_value = use_memo(move || {
-        props.id.clone().unwrap_or_else(|| trigger_id.peek().clone())
+        props
+            .id
+            .clone()
+            .unwrap_or_else(|| trigger_id.peek().clone())
     });
-    
+
     let trigger_classes = vec![
         // Base classes
         "flex w-full items-center text-left justify-between py-4 px-5 font-medium transition-all hover:underline group",
-        
+
         // Additional classes passed by the user
         props.class.as_deref().unwrap_or(""),
     ]
@@ -157,14 +156,14 @@ pub fn AccordionTrigger(props: AccordionTriggerProps) -> Element {
     .filter(|s| !s.is_empty())
     .collect::<Vec<_>>()
     .join(" ");
-    
+
     rsx! {
         PrimitiveAccordionTrigger {
             id: id_value.peek().clone(),
             class: trigger_classes,
-            
+
             {props.children}
-            
+
             // Chevron icon
             ChevronDown {
                 // class: "text-red-500 data-[state=open]:rotate-180"
@@ -195,13 +194,16 @@ pub fn AccordionContent(props: AccordionContentProps) -> Element {
     // Generate unique ID if not provided
     let content_id = use_unique_id();
     let id_value = use_memo(move || {
-        props.id.clone().unwrap_or_else(|| content_id.peek().clone())
+        props
+            .id
+            .clone()
+            .unwrap_or_else(|| content_id.peek().clone())
     });
-    
+
     let content_classes = vec![
         // Base classes
         "grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out group-data-[open=true]:grid-rows-[1fr] text-sm",
-        
+
         // Additional classes passed by the user
         props.class.as_deref().unwrap_or(""),
     ]
@@ -209,13 +211,13 @@ pub fn AccordionContent(props: AccordionContentProps) -> Element {
     .filter(|s| !s.is_empty())
     .collect::<Vec<_>>()
     .join(" ");
-    
+
     rsx! {
         PrimitiveAccordionContent {
             id: id_value.peek().clone(),
             class: content_classes,
-            
-            div { 
+
+            div {
                 class: "overflow-hidden",
                 div {
                     class: "py-4 px-5",

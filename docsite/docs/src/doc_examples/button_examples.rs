@@ -1,17 +1,17 @@
 #![allow(non_snake_case)]
 
-pub use variants::ButtonVariantsExample;
-pub use sizes::ButtonSizesExample;
-pub use states::ButtonStatesExample;
-pub use icons::ButtonWithIconsExample;
 pub use full_width::FullWidthButtonExample;
 pub use icon_buttons::IconButtonsExample;
+pub use icons::ButtonWithIconsExample;
+pub use sizes::ButtonSizesExample;
+pub use states::ButtonStatesExample;
+pub use variants::ButtonVariantsExample;
 
 pub mod variants {
     // ANCHOR: variants
     use dioxus::prelude::*;
     use laminar_blocks::components::button::{Button, ButtonVariant};
-    
+
     #[component]
     pub fn ButtonVariantsExample() -> Element {
         rsx! {
@@ -20,27 +20,27 @@ pub mod variants {
                     variant: ButtonVariant::Primary,
                     "Primary"
                 }
-                
+
                 Button {
                     variant: ButtonVariant::Secondary,
                     "Secondary"
                 }
-                
+
                 Button {
                     variant: ButtonVariant::Outline,
                     "Outline"
                 }
-                
+
                 Button {
                     variant: ButtonVariant::Ghost,
                     "Ghost"
                 }
-                
+
                 Button {
                     variant: ButtonVariant::Link,
                     "Link"
                 }
-                
+
                 Button {
                     variant: ButtonVariant::Destructive,
                     "Destructive"
@@ -54,8 +54,8 @@ pub mod variants {
 pub mod sizes {
     // ANCHOR: sizes
     use dioxus::prelude::*;
-    use laminar_blocks::components::button::{Button, ButtonVariant, ButtonSize};
-    
+    use laminar_blocks::components::button::{Button, ButtonSize, ButtonVariant};
+
     #[component]
     pub fn ButtonSizesExample() -> Element {
         rsx! {
@@ -65,13 +65,13 @@ pub mod sizes {
                     size: ButtonSize::Small,
                     "Small"
                 }
-                
+
                 Button {
                     variant: ButtonVariant::Primary,
                     size: ButtonSize::Medium,
                     "Medium"
                 }
-                
+
                 Button {
                     variant: ButtonVariant::Primary,
                     size: ButtonSize::Large,
@@ -87,17 +87,17 @@ pub mod states {
     // ANCHOR: states
     use dioxus::prelude::*;
     use laminar_blocks::components::button::{Button, ButtonVariant};
-    
+
     #[component]
     pub fn ButtonStatesExample() -> Element {
         // State for loading button
         let mut loading = use_signal(|| false);
-            
+
         // Toggle loading state
         let toggle_loading = move |_| {
             loading.set(!loading());
         };
-        
+
         rsx! {
             div { class: "flex flex-wrap gap-2.5 items-center",
                 Button {
@@ -105,13 +105,13 @@ pub mod states {
                     disabled: true,
                     "Disabled"
                 }
-                
+
                 Button {
                     variant: ButtonVariant::Primary,
                     loading: loading(),
                     "Loading"
                 }
-                
+
                 Button {
                     variant: ButtonVariant::Secondary,
                     on_click: toggle_loading,
@@ -128,7 +128,7 @@ pub mod icons {
     use dioxus::prelude::*;
     use laminar_blocks::components::button::{Button, ButtonVariant};
     use lucide_dioxus::{ArrowLeft, ArrowRight};
-    
+
     #[component]
     pub fn ButtonWithIconsExample() -> Element {
         rsx! {
@@ -138,7 +138,7 @@ pub mod icons {
                     icon_left: rsx! { ArrowLeft { size: 16 } },
                     "Left Icon"
                 }
-                
+
                 Button {
                     variant: ButtonVariant::Primary,
                     icon_right: rsx! { ArrowRight { size: 16 } },
@@ -154,7 +154,7 @@ pub mod full_width {
     // ANCHOR: full_width
     use dioxus::prelude::*;
     use laminar_blocks::components::button::{Button, ButtonVariant};
-    
+
     #[component]
     pub fn FullWidthButtonExample() -> Element {
         rsx! {
@@ -174,8 +174,8 @@ pub mod icon_buttons {
     // ANCHOR: icon_buttons
     use dioxus::prelude::*;
     use laminar_blocks::components::button::{Button, ButtonVariant};
-    use lucide_dioxus::{Plus, Pencil, Trash, Search, X};
-    
+    use lucide_dioxus::{Pencil, Plus, Search, Trash, X};
+
     #[component]
     pub fn IconButtonsExample() -> Element {
         rsx! {
@@ -186,28 +186,28 @@ pub mod icon_buttons {
                     aria_label: Some("Add item".to_string()),
                     Plus { size: 20 }
                 }
-                
+
                 Button {
                     variant: ButtonVariant::Secondary,
                     is_icon_button: true,
                     aria_label: Some("Edit item".to_string()),
                     Pencil { size: 20 }
                 }
-                
+
                 Button {
                     variant: ButtonVariant::Outline,
                     is_icon_button: true,
                     aria_label: Some("Delete item".to_string()),
                     Trash { size: 20 }
                 }
-                
+
                 Button {
                     variant: ButtonVariant::Ghost,
                     is_icon_button: true,
                     aria_label: Some("Search".to_string()),
                     Search { size: 20 }
                 }
-                
+
                 Button {
                     variant: ButtonVariant::Destructive,
                     is_icon_button: true,
@@ -224,10 +224,9 @@ pub mod icon_buttons {
 pub mod example {
     use dioxus::prelude::*;
     use laminar_blocks::components::button::{Button, ButtonVariant};
-    
+
     #[component]
     pub fn ButtonExample() -> Element {
-            
         rsx! {
             Button {
                 variant: ButtonVariant::Outline,

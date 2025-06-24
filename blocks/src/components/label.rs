@@ -71,13 +71,10 @@ pub fn Label(props: LabelProps) -> Element {
     let label_classes = vec![
         // Base classes
         "font-medium mb-1.5 block",
-        
         // Size-specific classes
         size_classes,
-        
         // State class
         state_class,
-        
         // Additional classes passed by the user
         props.class.as_deref().unwrap_or(""),
     ]
@@ -91,13 +88,13 @@ pub fn Label(props: LabelProps) -> Element {
             id: id_value,
             class: label_classes,
             for: (props.for_id)(),
-            
+
             // Pass through other attributes
             ..props.attributes,
 
             // Label content
             {props.children}
-            
+
             // Required indicator
             if (props.required)() {
                 span {

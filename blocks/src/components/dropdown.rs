@@ -2,10 +2,10 @@ use std::time::Duration;
 
 use crate::{use_id_or, use_unique_id};
 use dioxus_lib::prelude::*;
-use dioxus_primitives::dropdown_menu::{DropdownMenu, DropdownMenuContent, DropdownMenuItem};
 pub use dioxus_primitives::dropdown_menu::DropdownMenuTrigger as DropdownTrigger;
-use lucide_dioxus::Check;
+use dioxus_primitives::dropdown_menu::{DropdownMenu, DropdownMenuContent, DropdownMenuItem};
 use dioxus_time::use_timeout;
+use lucide_dioxus::Check;
 
 // Define a context struct for radio groups
 #[derive(Clone, PartialEq)]
@@ -13,8 +13,6 @@ struct RadioGroupContext {
     value: Signal<String>,
     on_change: EventHandler<String>,
 }
-
-
 
 /// Dropdown size options
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
@@ -150,8 +148,12 @@ pub fn Dropdown(props: DropdownProps) -> Element {
 
     // Determine base classes for dropdown
     let dropdown_classes = vec![
-        "relative inline-block text-left", 
-        if props.disabled { "opacity-50 pointer-events-none" } else { "" }
+        "relative inline-block text-left",
+        if props.disabled {
+            "opacity-50 pointer-events-none"
+        } else {
+            ""
+        },
     ]
     .into_iter()
     .filter(|s| !s.is_empty())
@@ -333,9 +335,12 @@ pub fn DropdownCheckboxItem(props: DropdownCheckboxItemProps) -> Element {
         "relative flex cursor-pointer select-none items-center rounded px-2 py-1.5",
         "text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground",
         "data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50",
-        
         // State classes
-        if props.disabled { "pointer-events-none opacity-50" } else { "hover:bg-accent hover:text-accent-foreground" },
+        if props.disabled {
+            "pointer-events-none opacity-50"
+        } else {
+            "hover:bg-accent hover:text-accent-foreground"
+        },
     ]
     .into_iter()
     .filter(|s| !s.is_empty())
@@ -354,7 +359,7 @@ pub fn DropdownCheckboxItem(props: DropdownCheckboxItemProps) -> Element {
             index: ReadOnlySignal::new(Signal::new(index_val)),
             disabled: disabled_val,
             on_select: move |_| handle_change(),
-            
+
             // Checkbox indicator
             span {
                 class: "mr-2 h-4 w-4 flex items-center justify-center border-none",
@@ -455,7 +460,7 @@ pub fn DropdownRadioItem(props: DropdownRadioItemProps) -> Element {
 
     // Get the radio group context if available
     let context = use_context::<RadioGroupContext>();
-    
+
     // Check if this item is selected based on context
     let is_selected = *context.value.read() == props.value;
 
@@ -465,9 +470,12 @@ pub fn DropdownRadioItem(props: DropdownRadioItemProps) -> Element {
         "relative flex cursor-pointer select-none items-center rounded px-2 py-1.5",
         "text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground",
         "data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50",
-        
         // State classes
-        if props.disabled { "pointer-events-none opacity-50" } else { "hover:bg-accent hover:text-accent-foreground" },
+        if props.disabled {
+            "pointer-events-none opacity-50"
+        } else {
+            "hover:bg-accent hover:text-accent-foreground"
+        },
     ]
     .into_iter()
     .filter(|s| !s.is_empty())
@@ -498,7 +506,7 @@ pub fn DropdownRadioItem(props: DropdownRadioItemProps) -> Element {
             span {
                 class: "mr-2 h-3.5 w-3.5 flex items-center justify-center rounded-full border",
                 aria_hidden: "true",
-                
+
                 // The dot will be shown when this item is selected
                 span {
                     class: "h-1.5 w-1.5 rounded-full bg-current",
@@ -525,7 +533,7 @@ pub fn DropdownItem(props: DropdownItemProps) -> Element {
         "text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground",
         "data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50",
         "disabled:pointer-events-none disabled:opacity-50 hover:bg-secondary hover:text-accent-foreground",
-        
+
         // Destructive style
         if props.destructive { "text-destructive focus:text-destructive" } else { "" },
     ]
@@ -537,7 +545,7 @@ pub fn DropdownItem(props: DropdownItemProps) -> Element {
     let value_str = props.value;
     let index_val = props.index;
     let disabled_val = props.disabled;
-    
+
     // Handle select event - clone value early to avoid move issues
     let value_for_handler = value_str.clone();
     let handler_clone = props.on_select.clone();

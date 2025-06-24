@@ -1,17 +1,17 @@
 #![allow(non_snake_case)]
 
-pub use setup::ToastProviderSetupExample;
+pub use advanced::AdvancedToastExample;
 pub use basic::BasicToastExample;
 pub use descriptions::ToastWithDescriptionsExample;
 pub use durations::CustomDurationToastExample;
-pub use advanced::AdvancedToastExample;
+pub use setup::ToastProviderSetupExample;
 
 pub mod setup {
     // ANCHOR: setup
     use dioxus::prelude::*;
-    use laminar_blocks::components::toast::{ToastProvider};
+    use laminar_blocks::components::toast::ToastProvider;
     use std::time::Duration;
-    
+
     #[component]
     pub fn ToastProviderSetupExample() -> Element {
         rsx! {
@@ -21,7 +21,7 @@ pub mod setup {
                 default_duration: Duration::from_secs(4),
                 // Maximum number of toasts to show at once (optional)
                 max_toasts: 5,
-                
+
                 // Your application content goes here
                 div {
                     class: "p-4 border rounded-md bg-muted",
@@ -45,11 +45,11 @@ pub mod basic {
     use dioxus::prelude::*;
     use laminar_blocks::components::button::{Button, ButtonVariant};
     use laminar_blocks::components::toast::use_toast;
-    
+
     #[component]
     pub fn BasicToastExample() -> Element {
         let toasts = use_toast();
-        
+
         rsx! {
             div { class: "space-y-4",
                 Button {
@@ -60,7 +60,7 @@ pub mod basic {
                     },
                     "Show Success Toast"
                 }
-                
+
                 Button {
                     variant: ButtonVariant::Destructive,
                     full_width: true,
@@ -69,7 +69,7 @@ pub mod basic {
                     },
                     "Show Error Toast"
                 }
-                
+
                 Button {
                     variant: ButtonVariant::Secondary,
                     full_width: true,
@@ -78,7 +78,7 @@ pub mod basic {
                     },
                     "Show Warning Toast"
                 }
-                
+
                 Button {
                     variant: ButtonVariant::Outline,
                     full_width: true,
@@ -98,11 +98,11 @@ pub mod descriptions {
     use dioxus::prelude::*;
     use laminar_blocks::components::button::{Button, ButtonVariant};
     use laminar_blocks::components::toast::{use_toast, ToastOptions};
-    
+
     #[component]
     pub fn ToastWithDescriptionsExample() -> Element {
         let toasts = use_toast();
-        
+
         rsx! {
             div { class: "space-y-4",
                 Button {
@@ -119,7 +119,7 @@ pub mod descriptions {
                     },
                     "Success with Description"
                 }
-                
+
                 Button {
                     variant: ButtonVariant::Destructive,
                     full_width: true,
@@ -134,7 +134,7 @@ pub mod descriptions {
                     },
                     "Error with Description"
                 }
-                
+
                 Button {
                     variant: ButtonVariant::Secondary,
                     full_width: true,
@@ -149,7 +149,7 @@ pub mod descriptions {
                     },
                     "Warning with Description"
                 }
-                
+
                 Button {
                     variant: ButtonVariant::Outline,
                     full_width: true,
@@ -176,11 +176,11 @@ pub mod durations {
     use laminar_blocks::components::button::{Button, ButtonVariant};
     use laminar_blocks::components::toast::{use_toast, ToastOptions};
     use std::time::Duration;
-    
+
     #[component]
     pub fn CustomDurationToastExample() -> Element {
         let toasts = use_toast();
-        
+
         rsx! {
             div { class: "space-y-4",
                 Button {
@@ -198,7 +198,7 @@ pub mod durations {
                     },
                     "1 Second Toast"
                 }
-                
+
                 Button {
                     variant: ButtonVariant::Secondary,
                     full_width: true,
@@ -214,7 +214,7 @@ pub mod durations {
                     },
                     "10 Second Toast"
                 }
-                
+
                 Button {
                     variant: ButtonVariant::Destructive,
                     full_width: true,
@@ -242,11 +242,11 @@ pub mod advanced {
     use laminar_blocks::components::button::{Button, ButtonVariant};
     use laminar_blocks::components::toast::{use_toast, ToastOptions, ToastType};
     use std::time::Duration;
-    
+
     #[component]
     pub fn AdvancedToastExample() -> Element {
         let toasts = use_toast();
-        
+
         rsx! {
             div { class: "space-y-4",
                 Button {
@@ -266,7 +266,7 @@ pub mod advanced {
                     },
                     "Custom Show Method"
                 }
-                
+
                 Button {
                     variant: ButtonVariant::Secondary,
                     full_width: true,
@@ -290,7 +290,7 @@ pub mod advanced {
                     },
                     "Show Multiple Toasts"
                 }
-                
+
                 Button {
                     variant: ButtonVariant::Outline,
                     full_width: true,
@@ -304,7 +304,7 @@ pub mod advanced {
                                 ..Default::default()
                             })
                         );
-                        
+
                         // Show success after a delay
                         toasts.success(
                             "Upload complete".to_string(),
@@ -327,11 +327,11 @@ pub mod advanced {
 pub mod example {
     use dioxus::prelude::*;
     use laminar_blocks::components::{button::Button, toast::use_toast};
-    
+
     #[component]
     pub fn ToastExample() -> Element {
         let toasts = use_toast();
-        
+
         rsx! {
             div {
                 Button {

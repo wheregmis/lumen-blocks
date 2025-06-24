@@ -29,14 +29,12 @@ pub struct AvatarProps {
 pub fn Avatar(props: AvatarProps) -> Element {
     // Generate unique ID if not provided
     let avatar_id = use_unique_id();
-    let id_value = use_memo(move || {
-        props.id.clone().unwrap_or_else(|| avatar_id.peek().clone())
-    });
+    let id_value = use_memo(move || props.id.clone().unwrap_or_else(|| avatar_id.peek().clone()));
 
     let avatar_classes = vec![
         // Base classes - circular avatar with consistent sizing
         "relative inline-flex h-10 w-10 shrink-0 overflow-hidden rounded-full border border-border bg-muted group",
-        
+
         // Additional classes passed by the user
         props.class.as_deref().unwrap_or(""),
     ]
@@ -56,7 +54,7 @@ pub fn Avatar(props: AvatarProps) -> Element {
                     handler.call(state);
                 }
             },
-            
+
             {props.children}
         }
     }
@@ -85,14 +83,11 @@ pub struct AvatarImageProps {
 pub fn AvatarImage(props: AvatarImageProps) -> Element {
     // Generate unique ID if not provided
     let image_id = use_unique_id();
-    let id_value = use_memo(move || {
-        props.id.clone().unwrap_or_else(|| image_id.peek().clone())
-    });
+    let id_value = use_memo(move || props.id.clone().unwrap_or_else(|| image_id.peek().clone()));
 
     let image_classes = vec![
         // Base classes - fill the container and maintain aspect ratio
         "aspect-square h-full w-full object-cover group-data-[state=error]:hidden",
-        
         // Additional classes passed by the user
         props.class.as_deref().unwrap_or(""),
     ]
@@ -132,13 +127,16 @@ pub fn AvatarFallback(props: AvatarFallbackProps) -> Element {
     // Generate unique ID if not provided
     let fallback_id = use_unique_id();
     let id_value = use_memo(move || {
-        props.id.clone().unwrap_or_else(|| fallback_id.peek().clone())
+        props
+            .id
+            .clone()
+            .unwrap_or_else(|| fallback_id.peek().clone())
     });
 
     let fallback_classes = vec![
         // Base classes - center content and style text
         "flex h-full w-full items-center justify-center rounded-full bg-muted text-sm font-medium text-muted-foreground",
-        
+
         // Additional classes passed by the user
         props.class.as_deref().unwrap_or(""),
     ]
@@ -151,7 +149,7 @@ pub fn AvatarFallback(props: AvatarFallbackProps) -> Element {
         PrimitiveAvatarFallback {
             id: id_value.peek().clone(),
             class: fallback_classes,
-            
+
             {props.children}
         }
     }

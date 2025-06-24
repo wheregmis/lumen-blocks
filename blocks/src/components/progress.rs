@@ -39,27 +39,27 @@ pub struct ProgressProps {
     /// The maximum value. Defaults to 100
     #[props(default = 100.0)]
     max: f64,
-    
+
     /// Size variant of the progress bar
     #[props(default)]
     pub size: ProgressSize,
-    
+
     /// Color variant of the progress bar
     #[props(default)]
     pub variant: ProgressVariant,
-    
+
     /// Optional ID for the progress element
     #[props(default)]
     pub id: Option<String>,
-    
+
     /// Accessible label for the progress
     #[props(default)]
     pub aria_label: Option<String>,
-    
+
     /// Whether to show the percentage text
     #[props(default = false)]
     pub show_percentage: bool,
-    
+
     /// Custom class names for the progress container
     #[props(default)]
     pub class: Option<String>,
@@ -110,7 +110,7 @@ pub fn Progress(props: ProgressProps) -> Element {
         div { class: "w-full space-y-2",
             if props.show_percentage {
                 div { class: "flex justify-between text-sm text-muted-foreground",
-                    span { 
+                    span {
                         if let Some(label) = &props.aria_label {
                             "{label}"
                         } else {

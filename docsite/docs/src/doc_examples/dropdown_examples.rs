@@ -1,26 +1,24 @@
 #![allow(non_snake_case)]
 
-
-pub use basic::BasicDropdownExample;
-pub use states::DropdownStatesExample;
-pub use icons::DropdownWithIconsExample;
 pub use alignment::DropdownAlignmentExample;
+pub use basic::BasicDropdownExample;
 pub use checkbox_radio::DropdownCheckboxRadioExample;
 pub use complex::ComplexDropdownExample;
+pub use icons::DropdownWithIconsExample;
+pub use states::DropdownStatesExample;
 
 pub mod basic {
     // ANCHOR: basic
     use dioxus::prelude::*;
-    use laminar_blocks::components::dropdown::{
-        Dropdown, DropdownTrigger, DropdownContent, 
-        DropdownItem, DropdownLabel, DropdownSeparator
-    };
     use laminar_blocks::components::button::{Button, ButtonVariant};
-    
+    use laminar_blocks::components::dropdown::{
+        Dropdown, DropdownContent, DropdownItem, DropdownLabel, DropdownSeparator, DropdownTrigger,
+    };
+
     #[component]
     pub fn BasicDropdownExample() -> Element {
         let mut selected_action = use_signal(|| String::new());
-        
+
         rsx! {
             div { class: "flex flex-col gap-4",
                 div { class: "flex flex-wrap gap-6 items-start",
@@ -32,7 +30,7 @@ pub mod basic {
                                 "Basic Dropdown"
                             }
                         }
-                        
+
                         DropdownContent {
                             DropdownItem {
                                 value: "Profile".to_string(),
@@ -42,7 +40,7 @@ pub mod basic {
                                 },
                                 "Profile"
                             }
-                            
+
                             DropdownItem {
                                 value: "Settings".to_string(),
                                 index: 1,
@@ -51,7 +49,7 @@ pub mod basic {
                                 },
                                 "Settings"
                             }
-                            
+
                             DropdownItem {
                                 value: "Logout".to_string(),
                                 index: 2,
@@ -62,7 +60,7 @@ pub mod basic {
                             }
                         }
                     }
-                
+
                     // Dropdown with label and separator
                     Dropdown {
                         DropdownTrigger {
@@ -71,12 +69,12 @@ pub mod basic {
                                 "With Label & Separator"
                             }
                         }
-                    
+
                         DropdownContent {
                             DropdownLabel {
                                 "Account"
                             }
-                        
+
                             DropdownItem {
                                 value: "Profile".to_string(),
                                 index: 0,
@@ -85,7 +83,7 @@ pub mod basic {
                                 },
                                 "Profile"
                             }
-                        
+
                             DropdownItem {
                                 value: "Settings".to_string(),
                                 index: 1,
@@ -94,13 +92,13 @@ pub mod basic {
                                 },
                                 "Settings"
                             }
-                        
+
                             DropdownSeparator {}
-                        
+
                             DropdownLabel {
                                 "Actions"
                             }
-                        
+
                             DropdownItem {
                                 value: "Logout".to_string(),
                                 index: 2,
@@ -113,7 +111,7 @@ pub mod basic {
                     }
                 }
             }
-                
+
             if !selected_action().is_empty() {
                 div { class: "p-3 bg-muted rounded-md my-4",
                     "Selected: " strong { "{selected_action()}" }
@@ -124,15 +122,14 @@ pub mod basic {
     // ANCHOR_END: basic
 }
 
-
 pub mod states {
     // ANCHOR: states
     use dioxus::prelude::*;
-    use laminar_blocks::components::dropdown::{
-        Dropdown, DropdownTrigger, DropdownContent, DropdownItem
-    };
     use laminar_blocks::components::button::{Button, ButtonVariant};
-    
+    use laminar_blocks::components::dropdown::{
+        Dropdown, DropdownContent, DropdownItem, DropdownTrigger,
+    };
+
     #[component]
     pub fn DropdownStatesExample() -> Element {
         rsx! {
@@ -147,7 +144,7 @@ pub mod states {
                             "Disabled Dropdown"
                         }
                     }
-                    
+
                     DropdownContent {
                         DropdownItem {
                             value: "item1".to_string(),
@@ -156,7 +153,7 @@ pub mod states {
                         }
                     }
                 }
-                
+
                 // Dropdown with disabled item
                 Dropdown {
                     DropdownTrigger {
@@ -165,21 +162,21 @@ pub mod states {
                             "With Disabled Item"
                         }
                     }
-                    
+
                     DropdownContent {
                         DropdownItem {
                             value: "item1".to_string(),
                             index: 0,
                             "Normal Item"
                         }
-                        
+
                         DropdownItem {
                             value: "item2".to_string(),
                             index: 1,
                             disabled: true,
                             "Disabled Item"
                         }
-                        
+
                         DropdownItem {
                             value: "item3".to_string(),
                             index: 2,
@@ -187,7 +184,7 @@ pub mod states {
                         }
                     }
                 }
-                
+
                 // Destructive item
                 Dropdown {
                     DropdownTrigger {
@@ -196,14 +193,14 @@ pub mod states {
                             "With Destructive Item"
                         }
                     }
-                    
+
                     DropdownContent {
                         DropdownItem {
                             value: "item1".to_string(),
                             index: 0,
                             "Normal Item"
                         }
-                        
+
                         DropdownItem {
                             value: "item2".to_string(),
                             index: 1,
@@ -221,11 +218,11 @@ pub mod states {
 pub mod icons {
     // ANCHOR: icons
     use dioxus::prelude::*;
-    use laminar_blocks::components::dropdown::{
-        Dropdown, DropdownTrigger, DropdownContent, DropdownItem
-    };
     use laminar_blocks::components::button::{Button, ButtonVariant};
-    use lucide_dioxus::{User, Settings, LogOut, Plus, Share2};
+    use laminar_blocks::components::dropdown::{
+        Dropdown, DropdownContent, DropdownItem, DropdownTrigger,
+    };
+    use lucide_dioxus::{LogOut, Plus, Settings, Share2, User};
 
     #[component]
     pub fn DropdownWithIconsExample() -> Element {
@@ -322,16 +319,16 @@ pub mod icons {
 pub mod alignment {
     // ANCHOR: alignment
     use dioxus::prelude::*;
-    use laminar_blocks::components::dropdown::{
-        Dropdown, DropdownTrigger, DropdownContent, DropdownItem
-    };
     use laminar_blocks::components::button::{Button, ButtonVariant};
-    
+    use laminar_blocks::components::dropdown::{
+        Dropdown, DropdownContent, DropdownItem, DropdownTrigger,
+    };
+
     #[component]
     pub fn DropdownAlignmentExample() -> Element {
         let mut selected_item = use_signal(|| String::new());
         let mut selected_alignment = use_signal(|| String::new());
-        
+
         rsx! {
             div { class: "flex flex-col gap-4 mb-4",
                 div { class: "flex flex-wrap gap-6 items-start",
@@ -343,10 +340,10 @@ pub mod alignment {
                                 "Left Aligned"
                             }
                         }
-                        
+
                         DropdownContent {
                             align: "start".to_string(),
-                            
+
                             DropdownItem {
                                 value: "Item 1".to_string(),
                                 index: 0,
@@ -356,7 +353,7 @@ pub mod alignment {
                                 },
                                 "Item 1"
                             }
-                            
+
                             DropdownItem {
                                 value: "Item 2".to_string(),
                                 index: 1,
@@ -368,7 +365,7 @@ pub mod alignment {
                             }
                         }
                     }
-                    
+
                     // Center aligned
                     Dropdown {
                         DropdownTrigger {
@@ -377,10 +374,10 @@ pub mod alignment {
                                 "Center Aligned"
                             }
                         }
-                        
+
                         DropdownContent {
                             align: "center".to_string(),
-                            
+
                             DropdownItem {
                                 value: "Item 1".to_string(),
                                 index: 0,
@@ -390,7 +387,7 @@ pub mod alignment {
                                 },
                                 "Item 1"
                             }
-                            
+
                             DropdownItem {
                                 value: "Item 2".to_string(),
                                 index: 1,
@@ -402,7 +399,7 @@ pub mod alignment {
                             }
                         }
                     }
-                    
+
                     // Right aligned
                     Dropdown {
                         DropdownTrigger {
@@ -411,10 +408,10 @@ pub mod alignment {
                                 "Right Aligned"
                             }
                         }
-                        
+
                         DropdownContent {
                             align: "end".to_string(),
-                            
+
                             DropdownItem {
                                 value: "Item 1".to_string(),
                                 index: 0,
@@ -424,7 +421,7 @@ pub mod alignment {
                                 },
                                 "Item 1"
                             }
-                            
+
                             DropdownItem {
                                 value: "Item 2".to_string(),
                                 index: 1,
@@ -438,7 +435,7 @@ pub mod alignment {
                     }
                 }
             }
-            
+
             if !selected_item().is_empty() {
                 div { class: "p-3 bg-muted rounded-md",
                     "Selected: " strong { "{selected_item()}" } " from " strong { "{selected_alignment()}" } " aligned dropdown"
@@ -452,12 +449,12 @@ pub mod alignment {
 pub mod checkbox_radio {
     // ANCHOR: checkbox_radio
     use dioxus::prelude::*;
-    use laminar_blocks::components::dropdown::{
-        Dropdown, DropdownTrigger, DropdownContent, 
-        DropdownLabel, DropdownCheckboxItem, DropdownRadioGroup, DropdownRadioItem
-    };
     use laminar_blocks::components::button::{Button, ButtonVariant};
-    
+    use laminar_blocks::components::dropdown::{
+        Dropdown, DropdownCheckboxItem, DropdownContent, DropdownLabel, DropdownRadioGroup,
+        DropdownRadioItem, DropdownTrigger,
+    };
+
     #[component]
     pub fn DropdownCheckboxRadioExample() -> Element {
         let mut dark_mode = use_signal(|| true);
@@ -474,14 +471,14 @@ pub mod checkbox_radio {
                                 "Settings"
                             }
                         }
-                            
+
                         DropdownContent {
                             width: "w-56".to_string(),
-                                
+
                             DropdownLabel {
                                 "Appearance"
                             }
-                                
+
                             {
                                 rsx! {
                                     DropdownCheckboxItem {
@@ -507,7 +504,7 @@ pub mod checkbox_radio {
                             }
                         }
                     }
-                        
+
                     // Radio Example
                     Dropdown {
                         DropdownTrigger {
@@ -516,14 +513,14 @@ pub mod checkbox_radio {
                                 "Theme"
                             }
                         }
-                        
+
                         DropdownContent {
                             width: "w-56".to_string(),
-                            
+
                             DropdownLabel {
                                 "Color Theme"
                             }
-                            
+
                             {
                                 rsx! {
                                     DropdownRadioGroup {
@@ -531,19 +528,19 @@ pub mod checkbox_radio {
                                         on_value_change: move |value: String| {
                                             theme.set(value.clone());
                                         },
-                                          
+
                                         DropdownRadioItem {
                                             value: "light".to_string(),
                                             index: 0,
                                             "Light"
                                         }
-                                         
+
                                         DropdownRadioItem {
                                             value: "dark".to_string(),
                                             index: 1,
                                             "Dark"
                                         }
-                                             
+
                                         DropdownRadioItem {
                                             value: "system".to_string(),
                                             index: 2,
@@ -555,25 +552,25 @@ pub mod checkbox_radio {
                         }
                     }
                 }
-                    
+
                 div { class: "p-3 bg-muted rounded-md space-y-1",
-                    div { 
-                        "Dark Mode: " 
-                        span { 
+                    div {
+                        "Dark Mode: "
+                        span {
                             class: if dark_mode() { "text-green-600" } else { "text-red-600" },
-                            if dark_mode() { "Enabled" } else { "Disabled" } 
-                        } 
+                            if dark_mode() { "Enabled" } else { "Disabled" }
+                        }
                     }
-                    div { 
-                        "Compact Mode: " 
-                        span { 
+                    div {
+                        "Compact Mode: "
+                        span {
                             class: if compact_mode() { "text-green-600" } else { "text-red-600" },
-                            if compact_mode() { "Enabled" } else { "Disabled" } 
-                        } 
+                            if compact_mode() { "Enabled" } else { "Disabled" }
+                        }
                     }
-                    div { 
-                        "Theme: " 
-                        strong { "{theme()}" } 
+                    div {
+                        "Theme: "
+                        strong { "{theme()}" }
                     }
                 }
             }
@@ -585,12 +582,11 @@ pub mod checkbox_radio {
 pub mod complex {
     // ANCHOR: complex
     use dioxus::prelude::*;
-    use laminar_blocks::components::dropdown::{
-        Dropdown, DropdownTrigger, DropdownContent, 
-        DropdownItem, DropdownLabel, DropdownSeparator
-    };
     use laminar_blocks::components::button::{Button, ButtonVariant};
-    use lucide_dioxus::{User, MessageSquare, Mail, CreditCard, Settings, LogOut};
+    use laminar_blocks::components::dropdown::{
+        Dropdown, DropdownContent, DropdownItem, DropdownLabel, DropdownSeparator, DropdownTrigger,
+    };
+    use lucide_dioxus::{CreditCard, LogOut, Mail, MessageSquare, Settings, User};
 
     #[component]
     pub fn ComplexDropdownExample() -> Element {

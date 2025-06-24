@@ -1,6 +1,7 @@
 use dioxus_lib::prelude::*;
 use dioxus_primitives::hover_card::{
-    HoverCard as PrimitiveHoverCard, HoverCardContent as PrimitiveHoverCardContent, HoverCardTrigger as PrimitiveHoverCardTrigger,
+    HoverCard as PrimitiveHoverCard, HoverCardContent as PrimitiveHoverCardContent,
+    HoverCardTrigger as PrimitiveHoverCardTrigger,
 };
 
 pub use dioxus_primitives::hover_card::{HoverCardAlign, HoverCardSide};

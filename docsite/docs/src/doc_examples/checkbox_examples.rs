@@ -1,20 +1,20 @@
 #![allow(non_snake_case)]
 
 pub use basic::BasicCheckboxExample;
+pub use form_integration::FormIntegrationExample;
 pub use sizes::CheckboxSizesExample;
 pub use states::CheckboxStatesExample;
-pub use form_integration::FormIntegrationExample;
 
 pub mod basic {
     // ANCHOR: basic
     use dioxus::prelude::*;
     use laminar_blocks::components::checkbox::Checkbox;
-    
+
     #[component]
     pub fn BasicCheckboxExample() -> Element {
         let mut checked1 = use_signal(|| false);
         let mut checked2 = use_signal(|| true);
-        
+
         rsx! {
             div { class: "flex flex-col gap-4",
                 div { class: "flex items-center gap-2",
@@ -26,10 +26,10 @@ pub mod basic {
                         aria_label: Some(String::from("Unchecked example")),
                     }
                     label { class: "text-sm font-medium",
-                        "Unchecked by default" 
+                        "Unchecked by default"
                     }
                 }
-                
+
                 div { class: "flex items-center gap-2",
                     Checkbox {
                         checked: checked2,
@@ -39,10 +39,10 @@ pub mod basic {
                         aria_label: Some(String::from("Checked example")),
                     }
                     label { class: "text-sm font-medium",
-                        "Checked by default" 
+                        "Checked by default"
                     }
                 }
-                
+
                 div {
                     span { class: "text-xs text-gray-500",
                         if checked1() { "First checkbox state: Checked" } else { "First checkbox state: Unchecked" }
@@ -58,13 +58,13 @@ pub mod sizes {
     // ANCHOR: sizes
     use dioxus::prelude::*;
     use laminar_blocks::components::checkbox::{Checkbox, CheckboxSize};
-    
+
     #[component]
     pub fn CheckboxSizesExample() -> Element {
         let mut checked1 = use_signal(|| false);
         let mut checked2 = use_signal(|| false);
         let mut checked3 = use_signal(|| false);
-        
+
         rsx! {
             div { class: "flex flex-col gap-4",
                 // Small
@@ -78,10 +78,10 @@ pub mod sizes {
                         aria_label: Some(String::from("Small checkbox example")),
                     }
                     label { class: "text-sm font-medium",
-                        "Small Size" 
+                        "Small Size"
                     }
                 }
-                
+
                 // Medium (default)
                 div { class: "flex items-center gap-2 py-2",
                     Checkbox {
@@ -92,10 +92,10 @@ pub mod sizes {
                         aria_label: Some(String::from("Medium checkbox example")),
                     }
                     label { class: "text-sm font-medium",
-                        "Medium Size (Default)" 
+                        "Medium Size (Default)"
                     }
                 }
-                
+
                 // Large
                 div { class: "flex items-center gap-2 py-2",
                     Checkbox {
@@ -107,7 +107,7 @@ pub mod sizes {
                         aria_label: Some(String::from("Large checkbox example")),
                     }
                     label { class: "text-sm font-medium",
-                        "Large Size" 
+                        "Large Size"
                     }
                 }
             }
@@ -120,12 +120,12 @@ pub mod states {
     // ANCHOR: states
     use dioxus::prelude::*;
     use laminar_blocks::components::checkbox::Checkbox;
-    
+
     #[component]
     pub fn CheckboxStatesExample() -> Element {
         let checked1 = use_signal(|| false);
         let checked2 = use_signal(|| true);
-        
+
         rsx! {
             div { class: "flex flex-col gap-4",
                 div { class: "flex items-center gap-2",
@@ -135,10 +135,10 @@ pub mod states {
                         aria_label: Some(String::from("Disabled unchecked checkbox example")),
                     }
                     label { class: "text-sm font-medium text-gray-500",
-                        "Disabled Unchecked" 
+                        "Disabled Unchecked"
                     }
                 }
-                
+
                 div { class: "flex items-center gap-2",
                     Checkbox {
                         checked: checked2,
@@ -146,7 +146,7 @@ pub mod states {
                         aria_label: Some(String::from("Disabled checked checkbox example")),
                     }
                     label { class: "text-sm font-medium text-gray-500",
-                        "Disabled Checked" 
+                        "Disabled Checked"
                     }
                 }
             }
@@ -159,13 +159,13 @@ pub mod form_integration {
     // ANCHOR: form_integration
     use dioxus::prelude::*;
     use laminar_blocks::components::{button::Button, checkbox::Checkbox};
-    
+
     #[component]
     pub fn FormIntegrationExample() -> Element {
         let mut terms_accepted = use_signal(|| false);
         let mut newsletter = use_signal(|| true);
         let mut form_status = use_signal(|| "Not submitted".to_string());
-        
+
         rsx! {
             form {
                 class: "space-y-4",
@@ -174,7 +174,7 @@ pub mod form_integration {
                     let new_text = format!("Form submitted with: {:?}", e.values());
                     form_status.set(new_text);
                 },
-                
+
                 div { class: "flex items-center gap-2",
                     Checkbox {
                         id: Some("terms-checkbox".to_string()),
@@ -185,10 +185,10 @@ pub mod form_integration {
                         },
                     }
                     label { r#for: "terms-checkbox", class: "text-sm font-medium",
-                        "I agree to the terms and conditions" 
+                        "I agree to the terms and conditions"
                     }
                 }
-                
+
                 div { class: "flex items-center gap-2",
                     Checkbox {
                         id: Some("newsletter-checkbox".to_string()),
@@ -199,18 +199,18 @@ pub mod form_integration {
                         },
                     }
                     label { r#for: "newsletter-checkbox", class: "text-sm font-medium",
-                        "Subscribe to newsletter" 
+                        "Subscribe to newsletter"
                     }
                 }
-                
+
                 Button {
                     button_type: "submit",
                     disabled: !terms_accepted(),
                     "Submit Form"
                 }
-                
+
                 // Display form submission status
-                div { 
+                div {
                     class: "mt-4 p-2 bg-muted rounded text-sm",
                     code { "{form_status}" }
                 }
@@ -224,11 +224,11 @@ pub mod form_integration {
 pub mod example {
     use dioxus::prelude::*;
     use laminar_blocks::components::checkbox::Checkbox;
-    
+
     #[component]
     pub fn CheckboxExample() -> Element {
         let mut checked = use_signal(|| false);
-            
+
         rsx! {
             Checkbox {
                 checked: checked,

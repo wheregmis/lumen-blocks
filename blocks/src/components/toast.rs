@@ -1,8 +1,8 @@
+use crate::components::button::{Button, ButtonVariant};
 use dioxus_lib::prelude::*;
 use dioxus_time::use_timeout;
-use lucide_dioxus::{Check, TriangleAlert, Info, X};
+use lucide_dioxus::{Check, Info, TriangleAlert, X};
 use std::time::Duration;
-use crate::components::button::{Button, ButtonVariant};
 
 // Toast types for different visual styles
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -77,7 +77,7 @@ pub fn ToastProvider(props: ToastProviderProps) -> Element {
             class: "fixed top-4 right-4 z-50 flex flex-col space-y-2 max-w-sm items-end pointer-events-none",
             aria_live: "polite",
             aria_atomic: true,
-            
+
             for toast in TOASTS.read().iter() {
                 Toast {
                     key: "{toast.id}",
@@ -102,7 +102,7 @@ pub fn Toast(props: ToastProps) -> Element {
     let toast = props.toast.clone();
     let id = toast.id;
     let mut visible = use_signal(|| true);
-    
+
     // Handle removing toast from the list
     let remove_toast = move || {
         let mut toasts = TOASTS.write();
@@ -115,12 +115,12 @@ pub fn Toast(props: ToastProps) -> Element {
     let start_exit = move |_| {
         visible.with_mut(|val| *val = false);
     };
-    
+
     // Set up auto-dismiss timer if not permanent
     if !toast.permanent {
         let duration = toast.duration.unwrap_or(props.default_duration);
         let mut visible_state = visible.clone();
-        
+
         // Simple timeout effect
         use_effect(move || {
             let timer = use_timeout(duration, move |()| {
@@ -131,20 +131,20 @@ pub fn Toast(props: ToastProps) -> Element {
             ()
         });
     }
-    
+
     // Base styling
     let base_classes = "pointer-events-auto relative flex w-full items-center justify-between space-x-4 overflow-hidden rounded-md border p-4 shadow-md hover:shadow-lg transition-all duration-300 group backdrop-blur-sm";
-    
+
     // Animation classes based on state
     let animation_classes = if !*visible.read() {
         "animate-slide-out-to-right"
     } else {
         "animate-slide-in-from-right"
     };
-    
+
     // Toast type specific classes
     let type_classes = toast.toast_type.classes();
-    
+
     // Combined classes
     let combined_classes = format!("{} {} {}", base_classes, animation_classes, type_classes);
 
@@ -154,10 +154,10 @@ pub fn Toast(props: ToastProps) -> Element {
             class: "{combined_classes}",
             tabindex: "0",  // Make focusable
             aria_labelledby: format!("toast-title-{}", toast.id),
-            aria_describedby: if toast.description.is_some() { 
-                Some(format!("toast-desc-{}", toast.id)) 
-            } else { 
-                None 
+            aria_describedby: if toast.description.is_some() {
+                Some(format!("toast-desc-{}", toast.id))
+            } else {
+                None
             },
             // Simplified: no pause-on-hover for initial implementation
             onanimationend: move |_| {
@@ -167,9 +167,9 @@ pub fn Toast(props: ToastProps) -> Element {
                 }
             },
 
-            div { 
+            div {
                 class: "flex items-center space-x-3 flex-1",
-                
+
                 div {
                     class: "flex-shrink-0 {toast.toast_type.icon_classes()}",
                     aria_label: match toast.toast_type {
@@ -181,17 +181,17 @@ pub fn Toast(props: ToastProps) -> Element {
                     {toast.toast_type.icon_component()}
                 }
 
-                div { 
+                div {
                     class: "flex-1 space-y-1",
-                    
-                    div { 
+
+                    div {
                         class: "text-sm font-semibold leading-none tracking-tight",
                         id: format!("toast-title-{}", toast.id),
                         "{toast.title}"
                     }
 
                     if let Some(description) = &toast.description {
-                        div { 
+                        div {
                             class: "text-sm opacity-90",
                             id: format!("toast-desc-{}", toast.id),
                             "{description}"
@@ -236,7 +236,11 @@ impl Toasts {
             title,
             description: options.description,
             toast_type,
-            duration: if options.permanent { None } else { options.duration },
+            duration: if options.permanent {
+                None
+            } else {
+                options.duration
+            },
             permanent: options.permanent,
             visible: true,
         };

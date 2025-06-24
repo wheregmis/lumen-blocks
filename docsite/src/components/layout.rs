@@ -1,6 +1,6 @@
 use dioxus::prelude::*;
 use laminar_blocks::components::{
-    avatar::{Avatar, AvatarImage, AvatarFallback},
+    avatar::{Avatar, AvatarFallback, AvatarImage},
     button::{Button, ButtonVariant},
     input::Input,
 };
@@ -11,15 +11,19 @@ pub fn SidebarLink(
     active: bool,
     onclick: EventHandler<MouseEvent>,
     icon: Element,
-    children: Element
+    children: Element,
 ) -> Element {
-    let base_classes = "flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors";
+    let base_classes =
+        "flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors";
     let classes = if active {
         format!("{} bg-primary text-primary-foreground", base_classes)
     } else {
-        format!("{} text-muted-foreground hover:text-foreground hover:bg-muted", base_classes)
+        format!(
+            "{} text-muted-foreground hover:text-foreground hover:bg-muted",
+            base_classes
+        )
     };
-    
+
     rsx! {
         button {
             class: classes,
@@ -44,7 +48,7 @@ pub fn Sidebar(current_section: Signal<String>) -> Element {
                         p { class: "text-sm text-muted-foreground", "Management Suite" }
                     }
                 }
-                
+
                 nav { class: "space-y-2",
                     SidebarLink {
                         active: current_section() == "overview",
@@ -82,8 +86,8 @@ pub fn Header(current_section: Signal<String>) -> Element {
         header { class: "bg-card border-b border-border px-6 py-4",
             div { class: "flex items-center justify-between",
                 div { class: "flex items-center gap-4",
-                    h2 { class: "text-2xl font-semibold text-foreground capitalize", 
-                        "{current_section()}" 
+                    h2 { class: "text-2xl font-semibold text-foreground capitalize",
+                        "{current_section()}"
                     }
                     if current_section() == "projects" {
                         Button {
@@ -92,7 +96,7 @@ pub fn Header(current_section: Signal<String>) -> Element {
                         }
                     }
                 }
-                
+
                 div { class: "flex items-center gap-4",
                     // Search
                     div { class: "relative",
@@ -102,7 +106,7 @@ pub fn Header(current_section: Signal<String>) -> Element {
                             class: Some("w-80".to_string()),
                         }
                     }
-                    
+
                     // Notifications
                     Button {
                         variant: ButtonVariant::Ghost,
@@ -110,7 +114,7 @@ pub fn Header(current_section: Signal<String>) -> Element {
                         aria_label: Some("Notifications".to_string()),
                         Info { class: "w-5 h-5" }
                     }
-                    
+
                     // User Avatar
                     Avatar {
                         class: Some("cursor-pointer".to_string()),
@@ -131,10 +135,10 @@ pub fn AppLayout(current_section: Signal<String>, children: Element) -> Element 
     rsx! {
         div { class: "flex min-h-screen bg-background",
             Sidebar { current_section }
-            
+
             div { class: "flex-1 flex flex-col",
                 Header { current_section }
-                
+
                 main { class: "flex-1 p-6 overflow-auto",
                     {children}
                 }

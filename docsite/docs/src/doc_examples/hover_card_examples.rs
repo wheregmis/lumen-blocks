@@ -1,34 +1,32 @@
 #![allow(non_snake_case)]
 
 pub use basic::HoverCardBasicExample;
+pub use icon::HoverCardIconExample;
 pub use placement::HoverCardPlacementExample;
 pub use profile::HoverCardProfileExample;
 pub use tooltip::HoverCardTooltipExample;
-pub use icon::HoverCardIconExample;
 
 pub mod basic {
     // ANCHOR: basic
     use dioxus::prelude::*;
-    use laminar_blocks::components::hover_card::{
-        HoverCard, HoverCardTrigger, HoverCardContent
-    };
-    
+    use laminar_blocks::components::hover_card::{HoverCard, HoverCardContent, HoverCardTrigger};
+
     #[component]
     pub fn HoverCardBasicExample() -> Element {
         rsx! {
             div { class: "flex flex-col items-center",
                 HoverCard {
                     HoverCardTrigger {
-                        button { 
-                            class: "px-4 py-2 rounded-md bg-primary text-primary-foreground hover:bg-primary/90", 
-                            "Hover over me" 
+                        button {
+                            class: "px-4 py-2 rounded-md bg-primary text-primary-foreground hover:bg-primary/90",
+                            "Hover over me"
                         }
                     }
 
-                    HoverCardContent { 
+                    HoverCardContent {
                         div { class: "p-4 max-w-xs",
                             h4 { class: "text-sm font-semibold mb-2", "Hover Card" }
-                            p { class: "text-sm text-muted-foreground", 
+                            p { class: "text-sm text-muted-foreground",
                                 "This is a basic hover card that appears when you hover over the trigger element."
                             }
                         }
@@ -44,9 +42,9 @@ pub mod placement {
     // ANCHOR: placement
     use dioxus::prelude::*;
     use laminar_blocks::components::hover_card::{
-        HoverCard, HoverCardTrigger, HoverCardContent, HoverCardAlign, HoverCardSide
+        HoverCard, HoverCardAlign, HoverCardContent, HoverCardSide, HoverCardTrigger,
     };
-    
+
     #[component]
     pub fn HoverCardPlacementExample() -> Element {
         rsx! {
@@ -55,13 +53,13 @@ pub mod placement {
                 div { class: "flex flex-row gap-8 justify-center",
                     HoverCard {
                         HoverCardTrigger {
-                            button { 
-                                class: "px-4 py-2 rounded-md bg-secondary text-secondary-foreground", 
-                                "Top Start" 
+                            button {
+                                class: "px-4 py-2 rounded-md bg-secondary text-secondary-foreground",
+                                "Top Start"
                             }
                         }
 
-                        HoverCardContent { 
+                        HoverCardContent {
                             side: Some(HoverCardSide::Top),
                             align: Some(HoverCardAlign::Start),
                             div { class: "p-2",
@@ -69,16 +67,16 @@ pub mod placement {
                             }
                         }
                     }
-                    
+
                     HoverCard {
                         HoverCardTrigger {
-                            button { 
-                                class: "px-4 py-2 rounded-md bg-secondary text-secondary-foreground", 
-                                "Top Center" 
+                            button {
+                                class: "px-4 py-2 rounded-md bg-secondary text-secondary-foreground",
+                                "Top Center"
                             }
                         }
 
-                        HoverCardContent { 
+                        HoverCardContent {
                             side: Some(HoverCardSide::Top),
                             align: Some(HoverCardAlign::Center),
                             div { class: "p-2",
@@ -86,16 +84,16 @@ pub mod placement {
                             }
                         }
                     }
-                    
+
                     HoverCard {
                         HoverCardTrigger {
-                            button { 
-                                class: "px-4 py-2 rounded-md bg-secondary text-secondary-foreground", 
-                                "Top End" 
+                            button {
+                                class: "px-4 py-2 rounded-md bg-secondary text-secondary-foreground",
+                                "Top End"
                             }
                         }
 
-                        HoverCardContent { 
+                        HoverCardContent {
                             side: Some(HoverCardSide::Top),
                             align: Some(HoverCardAlign::End),
                             div { class: "p-2",
@@ -104,18 +102,18 @@ pub mod placement {
                         }
                     }
                 }
-                
+
                 // Bottom placement
                 div { class: "flex flex-row gap-8 justify-center",
                     HoverCard {
                         HoverCardTrigger {
-                            button { 
-                                class: "px-4 py-2 rounded-md bg-secondary text-secondary-foreground", 
-                                "Bottom Start" 
+                            button {
+                                class: "px-4 py-2 rounded-md bg-secondary text-secondary-foreground",
+                                "Bottom Start"
                             }
                         }
 
-                        HoverCardContent { 
+                        HoverCardContent {
                             side: Some(HoverCardSide::Bottom),
                             align: Some(HoverCardAlign::Start),
                             div { class: "p-2",
@@ -123,16 +121,16 @@ pub mod placement {
                             }
                         }
                     }
-                    
+
                     HoverCard {
                         HoverCardTrigger {
-                            button { 
-                                class: "px-4 py-2 rounded-md bg-secondary text-secondary-foreground", 
-                                "Bottom Center" 
+                            button {
+                                class: "px-4 py-2 rounded-md bg-secondary text-secondary-foreground",
+                                "Bottom Center"
                             }
                         }
 
-                        HoverCardContent { 
+                        HoverCardContent {
                             side: Some(HoverCardSide::Bottom),
                             align: Some(HoverCardAlign::Center),
                             div { class: "p-2",
@@ -140,16 +138,16 @@ pub mod placement {
                             }
                         }
                     }
-                    
+
                     HoverCard {
                         HoverCardTrigger {
-                            button { 
-                                class: "px-4 py-2 rounded-md bg-secondary text-secondary-foreground", 
-                                "Bottom End" 
+                            button {
+                                class: "px-4 py-2 rounded-md bg-secondary text-secondary-foreground",
+                                "Bottom End"
                             }
                         }
 
-                        HoverCardContent { 
+                        HoverCardContent {
                             side: Some(HoverCardSide::Bottom),
                             align: Some(HoverCardAlign::End),
                             div { class: "p-2",
@@ -168,22 +166,22 @@ pub mod profile {
     // ANCHOR: profile
     use dioxus::prelude::*;
     use laminar_blocks::components::hover_card::{
-        HoverCard, HoverCardTrigger, HoverCardContent, HoverCardAlign, HoverCardSide
+        HoverCard, HoverCardAlign, HoverCardContent, HoverCardSide, HoverCardTrigger,
     };
-    
+
     #[component]
     pub fn HoverCardProfileExample() -> Element {
         rsx! {
             div { class: "flex justify-center",
                 HoverCard {
                     HoverCardTrigger {
-                        button { 
-                            class: "px-4 py-2 rounded-md bg-primary text-primary-foreground hover:bg-primary/90", 
-                            "@johndoe" 
+                        button {
+                            class: "px-4 py-2 rounded-md bg-primary text-primary-foreground hover:bg-primary/90",
+                            "@johndoe"
                         }
                     }
 
-                    HoverCardContent { 
+                    HoverCardContent {
                         side: Some(HoverCardSide::Bottom),
                         align: Some(HoverCardAlign::Start),
                         div { class: "user-card",
@@ -230,19 +228,19 @@ pub mod tooltip {
     // ANCHOR: tooltip
     use dioxus::prelude::*;
     use laminar_blocks::components::hover_card::{
-        HoverCard, HoverCardTrigger, HoverCardContent, HoverCardAlign, HoverCardSide
+        HoverCard, HoverCardAlign, HoverCardContent, HoverCardSide, HoverCardTrigger,
     };
     use lucide_dioxus::ExternalLink;
-    
+
     #[component]
     pub fn HoverCardTooltipExample() -> Element {
         rsx! {
             div { class: "flex justify-center",
                 HoverCard {
                     HoverCardTrigger {
-                        a { 
-                            class: "text-blue-600 hover:underline flex items-center gap-1", 
-                            href: "#", 
+                        a {
+                            class: "text-blue-600 hover:underline flex items-center gap-1",
+                            href: "#",
                             "Visit documentation site"
                             ExternalLink { size: 16 }
                         }
@@ -268,18 +266,18 @@ pub mod icon {
     // ANCHOR: icon
     use dioxus::prelude::*;
     use laminar_blocks::components::hover_card::{
-        HoverCard, HoverCardTrigger, HoverCardContent, HoverCardSide
+        HoverCard, HoverCardContent, HoverCardSide, HoverCardTrigger,
     };
     use lucide_dioxus::Info;
-    
+
     #[component]
     pub fn HoverCardIconExample() -> Element {
         rsx! {
             div { class: "flex justify-center",
                 HoverCard {
                     HoverCardTrigger {
-                        button { 
-                            class: "w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-secondary/80", 
+                        button {
+                            class: "w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-secondary/80",
                             Info { size: 20 }
                         }
                     }
@@ -289,10 +287,10 @@ pub mod icon {
                         class: Some("p-4".to_string()),
                         div {
                             h4 { class: "text-sm font-semibold mb-2", "Additional Information" }
-                            p { class: "text-sm text-muted-foreground", 
+                            p { class: "text-sm text-muted-foreground",
                                 "Hover cards provide contextual information without requiring a click."
                             }
-                            p { class: "text-sm text-muted-foreground mt-2", 
+                            p { class: "text-sm text-muted-foreground mt-2",
                                 "Use them to show previews, detailed information, or quick actions."
                             }
                         }

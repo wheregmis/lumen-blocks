@@ -1,5 +1,5 @@
 use dioxus::prelude::*;
-use laminar_blocks::components::button::{Button, ButtonVariant, ButtonSize};
+use laminar_blocks::components::button::{Button, ButtonSize, ButtonVariant};
 use lucide_dioxus::House;
 
 use crate::Route;
@@ -7,33 +7,33 @@ use crate::Route;
 #[component]
 pub fn Err404(segments: Vec<String>) -> Element {
     rsx! {
-        div { 
+        div {
             class: "min-h-screen flex items-center justify-center bg-background",
-            div { 
+            div {
                 class: "text-center px-6 py-12 max-w-md mx-auto",
-                
+
                 // Large 404 number
-                h1 { 
+                h1 {
                     class: "text-9xl font-extrabold text-primary mb-2",
-                    "404" 
+                    "404"
                 }
-                
+
                 // Error message
-                h2 { 
+                h2 {
                     class: "text-3xl font-bold text-foreground mb-4",
-                    "Page Not Found" 
+                    "Page Not Found"
                 }
-                
+
                 // Description
-                p { 
+                p {
                     class: "text-lg text-muted-foreground mb-8",
                     "Sorry, we couldn't find the page you're looking for."
                 }
-                
+
                 // Home button
-                div { 
+                div {
                     class: "flex justify-center",
-                    Link { 
+                    Link {
                         to: Route::Home {},
                         Button {
                             variant: ButtonVariant::Primary,

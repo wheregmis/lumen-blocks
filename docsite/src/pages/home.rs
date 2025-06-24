@@ -1,37 +1,40 @@
+use ::docs::docs::{
+    dropdown_examples::ComplexDropdownExample, menubar_examples::MenubarWithIconsExample,
+    progress_examples::InteractiveProgressExample,
+};
 use dioxus::prelude::*;
-use ::docs::docs::{dropdown_examples::ComplexDropdownExample, menubar_examples::MenubarWithIconsExample, progress_examples::InteractiveProgressExample};
+use docs::accordion_examples::BasicAccordionExample;
+use docs::avatar_examples::AvatarGroupExample;
+use docs::button_examples::ButtonVariantsExample;
+use docs::docs;
+use docs::form_examples::CompleteFormExample;
+use docs::hover_card_examples::HoverCardProfileExample;
+use docs::side_sheet_examples::BasicSideSheetExample;
+use docs::switch_examples::SwitchWithTextExample;
+use docs::toast_examples::ToastWithDescriptionsExample;
 use laminar_blocks::components::{
-    button::{Button, ButtonVariant, ButtonSize},
+    button::{Button, ButtonSize, ButtonVariant},
     toast::ToastProvider,
 };
-use lucide_dioxus::{Check, Wind, PersonStanding};
-use docs::docs;
-use docs::button_examples::ButtonVariantsExample;
-use docs::toast_examples::ToastWithDescriptionsExample;
-use docs::accordion_examples::BasicAccordionExample;
-use docs::hover_card_examples::HoverCardProfileExample;
-use docs::switch_examples::SwitchWithTextExample;
-use docs::side_sheet_examples::BasicSideSheetExample;
-use docs::form_examples::CompleteFormExample;
-use docs::avatar_examples::AvatarGroupExample;
+use lucide_dioxus::{Check, PersonStanding, Wind};
 
+use crate::components::{ComponentCard, FeatureCard};
 use crate::Route;
 use crate::LAMINAR_LOGO;
-use crate::components::{FeatureCard, ComponentCard};
 
 #[component]
 pub fn Home() -> Element {
     rsx! {
         div { class: "min-h-screen bg-background relative",
-            
+
             div { class: "max-w-6xl mx-auto px-6 py-12",
                 div { class: "text-center mb-12",
                     img { class: "w-48 h-48 mx-auto mb-4", src: LAMINAR_LOGO, alt: "Laminar Logo" }
                     h1 { class: "text-4xl font-bold text-foreground mb-4", "Laminar Blocks" }
-                    p { class: "text-xl text-muted-foreground mb-8", 
+                    p { class: "text-xl text-muted-foreground mb-8",
                         "Styled, opinionated UI components for building Dioxus applications"
                     }
-                    
+
                     div { class: "flex justify-center gap-4",
                         Link { to: Route::Docs01 { child: docs::router_01::BookRoute::Index { section: Default::default() } },
                             Button {
@@ -42,7 +45,7 @@ pub fn Home() -> Element {
                         }
                     }
                 }
-                
+
                 // Feature Cards
                 div { class: "grid grid-cols-1 md:grid-cols-3 gap-8 mb-24",
                     FeatureCard {
@@ -61,12 +64,12 @@ pub fn Home() -> Element {
                         icon: rsx! { PersonStanding { class: "w-8 h-8 text-primary" } }
                     }
                 }
-                
+
                 // Interactive Component Showcase - Bento Grid
                 ToastProvider {
                     div { class: "rounded-lg",
                         h2 { class: "text-3xl font-semibold text-foreground mb-6", "Component Showcase" }
-                        
+
                         div { class: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6",
                             // Buttons
                             ComponentCard {
@@ -75,7 +78,7 @@ pub fn Home() -> Element {
                                 col_span: Some("md:col-span-2".to_string()),
                                 ButtonVariantsExample {  }
                             }
-                            
+
                             // Hover Card
                             ComponentCard {
                                 title: "Hover Card".to_string(),
@@ -83,7 +86,7 @@ pub fn Home() -> Element {
                                 content_class: Some("px-4".to_string()),
                                 HoverCardProfileExample {}
                             }
-                            
+
                             // Complete form example
                             ComponentCard {
                                 title: "Form components".to_string(),
@@ -92,7 +95,7 @@ pub fn Home() -> Element {
                                 row_span: Some("md:row-span-2".to_string()),
                                 CompleteFormExample {}
                             }
-                            
+
                             // Switch (small screen)
                             ComponentCard {
                                 title: "Switch".to_string(),
@@ -100,7 +103,7 @@ pub fn Home() -> Element {
                                 col_span: Some("col-span-1 block lg:hidden".to_string()),
                                 SwitchWithTextExample {}
                             }
-                            
+
                             // Accordion
                             ComponentCard {
                                 title: "Accordion".to_string(),
@@ -108,7 +111,7 @@ pub fn Home() -> Element {
                                 col_span: Some("md:col-span-2".to_string()),
                                 BasicAccordionExample {}
                             }
-                            
+
                             // Switch (large screen)
                             ComponentCard {
                                 title: "Switch".to_string(),
@@ -116,7 +119,7 @@ pub fn Home() -> Element {
                                 col_span: Some("col-span-1 hidden lg:block".to_string()),
                                 SwitchWithTextExample {}
                             }
-                            
+
                             // Side Sheet
                             ComponentCard {
                                 title: "Side Sheet".to_string(),
@@ -124,14 +127,14 @@ pub fn Home() -> Element {
                                 col_span: Some("md:col-span-1".to_string()),
                                 BasicSideSheetExample {}
                             }
-                            
+
                             // Toast
                             ComponentCard {
                                 title: "Toast".to_string(),
                                 doc_route: Route::Docs01 { child: docs::router_01::BookRoute::ToastIndex { section: Default::default() } },
                                 ToastWithDescriptionsExample {}
                             }
-                            
+
                             // Menu bar
                             ComponentCard {
                                 title: "Menubar".to_string(),
@@ -139,14 +142,14 @@ pub fn Home() -> Element {
                                 col_span: Some("md:col-span-2".to_string()),
                                 MenubarWithIconsExample {  }
                             }
-                            
+
                             // Dropdown
                             ComponentCard {
                                 title: "Dropdown".to_string(),
                                 doc_route: Route::Docs01 { child: docs::router_01::BookRoute::DropdownIndex { section: Default::default() } },
                                 ComplexDropdownExample {  }
                             }
-                            
+
                             // Progress
                             ComponentCard {
                                 title: "Progress".to_string(),
@@ -154,7 +157,7 @@ pub fn Home() -> Element {
                                 col_span: Some("md:col-span-1".to_string()),
                                 InteractiveProgressExample {  }
                             }
-                            
+
                             // Avatar
                             ComponentCard {
                                 title: "Avatar".to_string(),

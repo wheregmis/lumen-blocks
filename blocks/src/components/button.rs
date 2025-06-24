@@ -46,7 +46,7 @@ pub struct ButtonProps {
     /// The size of the button
     #[props(default)]
     size: ButtonSize,
-    
+
     /// Whether the button is disabled
     #[props(default)]
     disabled: bool,
@@ -72,7 +72,7 @@ pub struct ButtonProps {
     /// Name of the button for form submission
     #[props(default)]
     name: String,
-    
+
     /// Value of the button for form submission
     #[props(default)]
     value: String,
@@ -130,18 +130,32 @@ pub fn Button(props: ButtonProps) -> Element {
     #[cfg(debug_assertions)]
     {
         if props.is_icon_button && props.aria_label.is_none() && props.aria_labelledby.is_none() {
-            log::warn!("Icon button missing aria-label or aria-labelledby attribute. This may cause accessibility issues.");
+            log::warn!(
+                "Icon button missing aria-label or aria-labelledby attribute. This may cause accessibility issues."
+            );
         }
     }
 
     // Determine base classes for button based on variant
     let variant_classes = match props.variant {
-        ButtonVariant::Primary => "bg-primary text-primary-foreground hover:bg-primary/90 border-transparent focus:ring-ring",
-        ButtonVariant::Secondary => "bg-secondary text-secondary-foreground hover:bg-secondary/80 border-transparent focus:ring-ring",
-        ButtonVariant::Outline => "bg-background text-foreground hover:bg-muted border-border focus:ring-ring",
-        ButtonVariant::Ghost => "bg-transparent text-foreground hover:bg-muted border-transparent focus:ring-ring",
-        ButtonVariant::Link => "bg-transparent text-primary underline-offset-4 underline border-transparent p-0 shadow-none focus:ring-ring",
-        ButtonVariant::Destructive => "bg-destructive text-primary-foreground dark:text-foreground hover:bg-destructive/90 border-transparent focus:ring-ring",
+        ButtonVariant::Primary => {
+            "bg-primary text-primary-foreground hover:bg-primary/90 border-transparent focus:ring-ring"
+        }
+        ButtonVariant::Secondary => {
+            "bg-secondary text-secondary-foreground hover:bg-secondary/80 border-transparent focus:ring-ring"
+        }
+        ButtonVariant::Outline => {
+            "bg-background text-foreground hover:bg-muted border-border focus:ring-ring"
+        }
+        ButtonVariant::Ghost => {
+            "bg-transparent text-foreground hover:bg-muted border-transparent focus:ring-ring"
+        }
+        ButtonVariant::Link => {
+            "bg-transparent text-primary underline-offset-4 underline border-transparent p-0 shadow-none focus:ring-ring"
+        }
+        ButtonVariant::Destructive => {
+            "bg-destructive text-primary-foreground dark:text-foreground hover:bg-destructive/90 border-transparent focus:ring-ring"
+        }
     };
 
     // Determine size classes based on whether it's an icon button or regular button
@@ -180,19 +194,18 @@ pub fn Button(props: ButtonProps) -> Element {
         // Base classes that apply to all buttons
         "inline-flex items-center justify-center font-medium rounded border",
         "transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2",
-        
         // Variant-specific classes
         variant_classes,
-        
         // Size-specific classes
         size_classes,
-        
         // Width class
         width_class,
-        
         // Icon button gets aspect-square class
-        if props.is_icon_button { "aspect-square" } else { "" },
-        
+        if props.is_icon_button {
+            "aspect-square"
+        } else {
+            ""
+        },
         // State class (disabled/loading)
         state_class,
     ]

@@ -41,7 +41,7 @@ pub struct InputProps {
     /// The size of the input
     #[props(default)]
     size: InputSize,
-    
+
     /// Whether the input is disabled
     #[props(default)]
     disabled: bool,
@@ -135,11 +135,7 @@ pub fn Input(props: InputProps) -> Element {
     };
 
     // Determine width class
-    let width_class = if props.full_width {
-        "w-full"
-    } else {
-        "w-auto"
-    };
+    let width_class = if props.full_width { "w-full" } else { "w-auto" };
 
     // Determine state classes
     let state_class = if props.disabled {
@@ -174,23 +170,17 @@ pub fn Input(props: InputProps) -> Element {
         // Base classes
         "rounded border text-foreground",
         "transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
-        
         // Variant-specific classes
         variant_classes,
-        
         // Size-specific classes
         size_classes,
-        
         // Width class
         width_class,
-        
         // State class
         state_class,
-        
         // Padding adjustments for icons
         padding_left,
         padding_right,
-        
         // Additional classes passed by the user
         props.class.as_deref().unwrap_or(""),
     ]
@@ -223,7 +213,7 @@ pub fn Input(props: InputProps) -> Element {
     rsx! {
         div {
             class: "relative",
-            
+
             // Left icon if provided
             if let Some(icon) = &props.icon_left {
                 div {
@@ -232,7 +222,7 @@ pub fn Input(props: InputProps) -> Element {
                     {icon.clone()}
                 }
             }
-            
+
             input {
                 // Standard HTML attributes
                 id: id_value,
@@ -244,23 +234,23 @@ pub fn Input(props: InputProps) -> Element {
                 readonly: props.readonly,
                 required: props.required,
                 class: input_classes,
-                
+
                 // Event handlers
                 onchange: handle_change,
                 onfocus: handle_focus,
                 onblur: handle_blur,
-                
+
                 // ARIA attributes
                 aria_label: props.aria_label.clone(),
                 aria_labelledby: props.aria_labelledby.clone(),
                 aria_describedby: props.aria_describedby.clone(),
                 aria_disabled: props.disabled.to_string(),
                 aria_required: props.required.to_string(),
-                
+
                 // Pass through other attributes
                 ..props.attributes,
             }
-            
+
             // Right icon if provided
             if let Some(icon) = &props.icon_right {
                 div {

@@ -7,11 +7,10 @@ pub mod basic {
     use dioxus::prelude::*;
     use laminar_blocks::components::button::{Button, ButtonVariant};
     use laminar_blocks::components::side_sheet::{
-        SideSheet, SideSheetTrigger, SideSheetContent, SideSheetCloseButton,
-        SideSheetHeader, SideSheetTitle, SideSheetDescription,
-        SideSheetBody, SideSheetFooter, SideSheetClose
+        SideSheet, SideSheetBody, SideSheetClose, SideSheetCloseButton, SideSheetContent,
+        SideSheetDescription, SideSheetFooter, SideSheetHeader, SideSheetTitle, SideSheetTrigger,
     };
-    
+
     #[component]
     pub fn BasicSideSheetExample() -> Element {
         rsx! {
@@ -23,12 +22,12 @@ pub mod basic {
                             "Open Side Sheet"
                         }
                     }
-                    
+
                     SideSheetContent {
                         class: "p-6 flex flex-col h-full",
-                        
+
                         SideSheetCloseButton {}
-                        
+
                         SideSheetHeader {
                             SideSheetTitle {
                                 "Side Sheet Title"
@@ -37,14 +36,14 @@ pub mod basic {
                                 "This is a basic side sheet that slides in from the right."
                             }
                         }
-                        
+
                         SideSheetBody {
                             class: "py-6",
                             p {
                                 "This is the main content area of the side sheet. You can put any content here, including forms, lists, or other UI elements."
                             }
                         }
-                        
+
                         SideSheetFooter {
                             SideSheetClose {
                                 Button {
@@ -72,12 +71,11 @@ pub mod positions {
     use dioxus::prelude::*;
     use laminar_blocks::components::button::{Button, ButtonVariant};
     use laminar_blocks::components::side_sheet::{
-        SideSheet, SideSheetTrigger, SideSheetContent, SideSheetCloseButton,
-        SideSheetHeader, SideSheetTitle, SideSheetDescription,
-        SideSheetBody, SideSheetSide
+        SideSheet, SideSheetBody, SideSheetCloseButton, SideSheetContent, SideSheetDescription,
+        SideSheetHeader, SideSheetSide, SideSheetTitle, SideSheetTrigger,
     };
     use lucide_dioxus::Menu;
-    
+
     #[component]
     pub fn SideSheetPositionsExample() -> Element {
         rsx! {
@@ -91,12 +89,12 @@ pub mod positions {
                                 "Right Side Sheet"
                             }
                         }
-                        
+
                         SideSheetContent {
                             class: "p-6 flex flex-col h-full",
-                            
+
                             SideSheetCloseButton {}
-                            
+
                             SideSheetHeader {
                                 SideSheetTitle {
                                     "Right Side Sheet"
@@ -105,7 +103,7 @@ pub mod positions {
                                     "This side sheet slides in from the right (default)."
                                 }
                             }
-                            
+
                             SideSheetBody {
                                 class: "py-6",
                                 p {
@@ -115,12 +113,12 @@ pub mod positions {
                         }
                     }
                 }
-                
+
                 // Left side sheet
                 div {
                     SideSheet {
                         side: SideSheetSide::Left,
-                        
+
                         SideSheetTrigger {
                             Button {
                                 variant: ButtonVariant::Secondary,
@@ -128,12 +126,12 @@ pub mod positions {
                                 "Left Side Sheet"
                             }
                         }
-                        
+
                         SideSheetContent {
                             class: "p-6 flex flex-col h-full",
-                            
+
                             SideSheetCloseButton {}
-                            
+
                             SideSheetHeader {
                                 SideSheetTitle {
                                     "Left Side Sheet"
@@ -142,7 +140,7 @@ pub mod positions {
                                     "This side sheet slides in from the left."
                                 }
                             }
-                            
+
                             SideSheetBody {
                                 class: "py-6",
                                 p {

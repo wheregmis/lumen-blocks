@@ -38,24 +38,24 @@ struct SideSheetContext {
 pub struct SideSheetProps {
     #[props(default = SideSheetSide::Right)]
     pub side: SideSheetSide,
-    
+
     #[props(default = false)]
     pub default_open: bool,
-    
+
     pub children: Element,
 }
 
 #[component]
 pub fn SideSheet(props: SideSheetProps) -> Element {
     let is_open = use_signal(|| props.default_open);
-    
+
     let context = SideSheetContext {
         is_open,
         side: props.side,
     };
-    
+
     use_context_provider(|| context);
-    
+
     rsx! {
         {props.children}
     }
@@ -70,11 +70,11 @@ pub struct SideSheetTriggerProps {
 #[component]
 pub fn SideSheetTrigger(props: SideSheetTriggerProps) -> Element {
     let mut context = use_context::<SideSheetContext>();
-    
+
     let on_click = move |_| {
         context.is_open.set(true);
     };
-    
+
     rsx! {
         div { class: "w-auto inline-block",
             onclick: on_click,
@@ -92,11 +92,11 @@ pub struct SideSheetCloseProps {
 #[component]
 pub fn SideSheetClose(props: SideSheetCloseProps) -> Element {
     let mut context = use_context::<SideSheetContext>();
-    
+
     let on_click = move |_| {
         context.is_open.set(false);
     };
-    
+
     rsx! {
         div {
             onclick: on_click,
@@ -115,13 +115,13 @@ pub struct SideSheetOverlayProps {
 #[component]
 pub fn SideSheetOverlay(props: SideSheetOverlayProps) -> Element {
     let mut context = use_context::<SideSheetContext>();
-    
+
     let on_click = move |_| {
         context.is_open.set(false);
     };
-    
+
     let is_open = *context.is_open.read();
-    
+
     rsx! {
         div {
             class: "fixed inset-0 z-50 {props.class} data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:hidden",
@@ -137,7 +137,7 @@ pub fn SideSheetOverlay(props: SideSheetOverlayProps) -> Element {
 pub struct SideSheetContentProps {
     #[props(default = "".to_string())]
     pub class: String,
-    
+
     pub children: Element,
 }
 
@@ -145,21 +145,21 @@ pub struct SideSheetContentProps {
 pub fn SideSheetContent(props: SideSheetContentProps) -> Element {
     let context = use_context::<SideSheetContext>();
     let is_open = *context.is_open.read();
-    
+
     // We'll handle escape key with the aria-modal attribute
     // which provides built-in keyboard handling
-    
+
     let side_classes = context.side.content_classes();
     let animation_classes = context.side.animation_classes(is_open);
-    
+
     rsx! {
         // Portal-like behavior - render at the root level
         div {
             class: "fixed z-50",
-            
+
             // Overlay
             SideSheetOverlay {}
-            
+
             // Content
             div {
                 class: "fixed z-50 bg-background border-l border-border shadow-lg transition ease-in-out duration-300 {side_classes} {animation_classes} {props.class}",
@@ -167,9 +167,9 @@ pub fn SideSheetContent(props: SideSheetContentProps) -> Element {
                 aria_modal: "true",
                 aria_labelledby: "side-sheet-title",
                 aria_describedby: "side-sheet-description",
-                
+
                 // Focus trap would be implemented here in a production version
-                
+
                 {props.children}
             }
         }
@@ -181,7 +181,7 @@ pub fn SideSheetContent(props: SideSheetContentProps) -> Element {
 pub struct SideSheetHeaderProps {
     #[props(default = "".to_string())]
     pub class: String,
-    
+
     pub children: Element,
 }
 
@@ -200,7 +200,7 @@ pub fn SideSheetHeader(props: SideSheetHeaderProps) -> Element {
 pub struct SideSheetTitleProps {
     #[props(default = "".to_string())]
     pub class: String,
-    
+
     pub children: Element,
 }
 
@@ -220,7 +220,7 @@ pub fn SideSheetTitle(props: SideSheetTitleProps) -> Element {
 pub struct SideSheetDescriptionProps {
     #[props(default = "".to_string())]
     pub class: String,
-    
+
     pub children: Element,
 }
 
@@ -240,7 +240,7 @@ pub fn SideSheetDescription(props: SideSheetDescriptionProps) -> Element {
 pub struct SideSheetBodyProps {
     #[props(default = "".to_string())]
     pub class: String,
-    
+
     pub children: Element,
 }
 
@@ -259,7 +259,7 @@ pub fn SideSheetBody(props: SideSheetBodyProps) -> Element {
 pub struct SideSheetFooterProps {
     #[props(default = "".to_string())]
     pub class: String,
-    
+
     pub children: Element,
 }
 
@@ -283,16 +283,16 @@ pub struct SideSheetCloseButtonProps {
 #[component]
 pub fn SideSheetCloseButton(props: SideSheetCloseButtonProps) -> Element {
     let mut context = use_context::<SideSheetContext>();
-    
+
     rsx! {
         button {
             class: "absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary {props.class}",
             onclick: move |_| context.is_open.set(false),
             type: "button",
             aria_label: "Close",
-            
-            X { 
-                class: "h-6 w-6" 
+
+            X {
+                class: "h-6 w-6"
             }
         }
     }

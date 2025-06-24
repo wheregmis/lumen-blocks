@@ -1,6 +1,9 @@
 use crate::{use_id_or, use_unique_id};
 use dioxus_lib::prelude::*;
-use dioxus_primitives::context_menu::{ContextMenu as PrimitiveContextMenu, ContextMenuContent as PrimitiveContextMenuContent, ContextMenuItem as PrimitiveContextMenuItem};
+use dioxus_primitives::context_menu::{
+    ContextMenu as PrimitiveContextMenu, ContextMenuContent as PrimitiveContextMenuContent,
+    ContextMenuItem as PrimitiveContextMenuItem,
+};
 
 // Define a context struct for radio groups
 #[derive(Clone, PartialEq)]
@@ -29,8 +32,6 @@ pub struct ContextMenuProps {
 
     children: Element,
 }
-
-
 
 // ContextMenu Content Props
 #[derive(Props, Clone, PartialEq)]
@@ -101,8 +102,12 @@ pub fn ContextMenu(props: ContextMenuProps) -> Element {
 
     // Determine base classes for context menu
     let context_menu_classes = vec![
-        "relative", 
-        if props.disabled { "opacity-50 pointer-events-none" } else { "" }
+        "relative",
+        if props.disabled {
+            "opacity-50 pointer-events-none"
+        } else {
+            ""
+        },
     ]
     .into_iter()
     .filter(|s| !s.is_empty())
@@ -282,9 +287,12 @@ pub fn ContextMenuCheckboxItem(props: ContextMenuCheckboxItemProps) -> Element {
         "relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5",
         "text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground",
         "data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50",
-        
         // State classes
-        if props.disabled { "pointer-events-none opacity-50" } else { "hover:bg-accent hover:text-accent-foreground" },
+        if props.disabled {
+            "pointer-events-none opacity-50"
+        } else {
+            "hover:bg-accent hover:text-accent-foreground"
+        },
     ]
     .into_iter()
     .filter(|s| !s.is_empty())
@@ -301,7 +309,7 @@ pub fn ContextMenuCheckboxItem(props: ContextMenuCheckboxItemProps) -> Element {
             value: ReadOnlySignal::new(Signal::new(value_str)),
             index: ReadOnlySignal::new(Signal::new(index_val)),
             on_select: move |_| handle_change(),
-            
+
             // Checkbox indicator
             span {
                 class: "mr-2 h-4 w-4 flex items-center justify-center border-none",
@@ -347,7 +355,7 @@ pub fn ContextMenuRadioGroup(props: ContextMenuRadioGroupProps) -> Element {
     let group_id = use_unique_id();
     let props_id = use_signal(|| props.id);
     let id_value = use_id_or(group_id, props_id.into());
-    
+
     // Create a context with value signal and change handler
     if let Some(handler) = &props.on_value_change {
         let context = RadioGroupContext {
@@ -403,7 +411,7 @@ pub fn ContextMenuRadioItem(props: ContextMenuRadioItemProps) -> Element {
 
     // Get the radio group context if available
     let context = use_context::<RadioGroupContext>();
-    
+
     // Check if this item is selected based on context
     let is_selected = *context.value.read() == props.value;
 
@@ -413,9 +421,12 @@ pub fn ContextMenuRadioItem(props: ContextMenuRadioItemProps) -> Element {
         "relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5",
         "text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground",
         "data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50",
-        
         // State classes
-        if props.disabled { "pointer-events-none opacity-50" } else { "hover:bg-accent hover:text-accent-foreground" },
+        if props.disabled {
+            "pointer-events-none opacity-50"
+        } else {
+            "hover:bg-accent hover:text-accent-foreground"
+        },
     ]
     .into_iter()
     .filter(|s| !s.is_empty())
@@ -444,7 +455,7 @@ pub fn ContextMenuRadioItem(props: ContextMenuRadioItemProps) -> Element {
             span {
                 class: "mr-2 h-3.5 w-3.5 flex items-center justify-center rounded-full border",
                 aria_hidden: "true",
-                
+
                 // The dot will be shown when this item is selected
                 span {
                     class: "h-1.5 w-1.5 rounded-full bg-current",
@@ -471,7 +482,7 @@ pub fn ContextMenuItem(props: ContextMenuItemProps) -> Element {
         "text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground",
         "data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50",
         "disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground",
-        
+
         // Destructive style
         if props.destructive { "text-destructive focus:text-destructive" } else { "" },
     ]
@@ -482,7 +493,7 @@ pub fn ContextMenuItem(props: ContextMenuItemProps) -> Element {
 
     let value_str = props.value;
     let index_val = props.index;
-    
+
     // Handle select event - clone value early to avoid move issues
     let value_for_handler = value_str.clone();
     let handler_clone = props.on_select.clone();

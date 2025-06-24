@@ -1,7 +1,7 @@
-pub mod button_examples;
 pub mod accordion_examples;
 pub mod aspect_ratio_examples;
 pub mod avatar_examples;
+pub mod button_examples;
 pub mod checkbox_examples;
 pub mod collapsible_examples;
 pub mod context_menu_examples;

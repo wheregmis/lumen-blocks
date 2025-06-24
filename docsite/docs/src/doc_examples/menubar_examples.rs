@@ -8,9 +8,9 @@ pub mod basic {
     // ANCHOR: basic
     use dioxus::prelude::*;
     use laminar_blocks::components::menubar::{
-        Menubar, MenubarMenu, MenubarTrigger, MenubarContent, MenubarItem,
+        Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarTrigger,
     };
-    
+
     #[component]
     pub fn BasicMenubarExample() -> Element {
         let mut last_action = use_signal(|| String::new());
@@ -71,10 +71,10 @@ pub mod basic {
                         }
                     }
                 }
-                
+
                 // Display last action
                 if !last_action().is_empty() {
-                    div { 
+                    div {
                         class: "mt-4 p-2 rounded bg-card text-sm",
                         "Last action: {last_action}"
                     }
@@ -89,13 +89,13 @@ pub mod disabled {
     // ANCHOR: disabled
     use dioxus::prelude::*;
     use laminar_blocks::components::menubar::{
-        Menubar, MenubarMenu, MenubarTrigger, MenubarContent, MenubarItem,
+        Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarTrigger,
     };
-    
+
     #[component]
     pub fn DisabledMenubarExample() -> Element {
         let mut last_action = use_signal(|| String::new());
-        
+
         let handle_select = move |value: String| {
             last_action.set(format!("Menu item selected: {}", value));
         };
@@ -123,9 +123,9 @@ pub mod disabled {
                     // Disabled Menu
                     MenubarMenu {
                         index: 1,
-                        MenubarTrigger { 
-                            class: Some("opacity-50 pointer-events-none".to_string()), 
-                            "Disabled Menu" 
+                        MenubarTrigger {
+                            class: Some("opacity-50 pointer-events-none".to_string()),
+                            "Disabled Menu"
                         }
                         MenubarContent {
                             MenubarItem {
@@ -154,10 +154,10 @@ pub mod disabled {
                         }
                     }
                 }
-                
+
                 // Display last action
                 if !last_action().is_empty() {
-                    div { 
+                    div {
                         class: "mt-4 p-2 rounded bg-card text-sm",
                         "Last action: {last_action}"
                     }
@@ -172,14 +172,14 @@ pub mod with_icons {
     // ANCHOR: with_icons
     use dioxus::prelude::*;
     use laminar_blocks::components::menubar::{
-        Menubar, MenubarMenu, MenubarTrigger, MenubarContent, MenubarItem,
+        Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarTrigger,
     };
-    use lucide_dioxus::{FileText, FolderOpen, Save, Scissors, Copy, Clipboard};
-    
+    use lucide_dioxus::{Clipboard, Copy, FileText, FolderOpen, Save, Scissors};
+
     #[component]
     pub fn MenubarWithIconsExample() -> Element {
         let mut last_action = use_signal(|| String::new());
-        
+
         let file_open = move |value: String| {
             last_action.set(format!("File menu selected: {}", value));
         };
@@ -248,10 +248,10 @@ pub mod with_icons {
                         }
                     }
                 }
-                
+
                 // Display selected action with icon
                 if !last_action().is_empty() {
-                    div { 
+                    div {
                         class: "mt-4 p-2 rounded bg-card text-sm",
                         "Selected: " strong { "{last_action()}" }
                     }

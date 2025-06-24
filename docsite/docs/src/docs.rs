@@ -1,8 +1,8 @@
 pub use crate::doc_examples::*;
 use dioxus::prelude::*;
 use laminar_blocks::components::button::{Button, ButtonSize, ButtonVariant};
-use std::hash::Hash;
 use lucide_dioxus::{Check, Copy};
+use std::hash::Hash;
 
 pub mod router_01;
 

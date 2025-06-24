@@ -1,14 +1,15 @@
 #![allow(non_snake_case)]
 
-
 pub use basic::BasicAccordionExample;
 pub use multiple::MultipleOpenAccordionExample;
 
 pub mod basic {
     // ANCHOR: basic
     use dioxus::prelude::*;
-    use laminar_blocks::components::accordion::{Accordion, AccordionContent, AccordionItem, AccordionTrigger};
-    
+    use laminar_blocks::components::accordion::{
+        Accordion, AccordionContent, AccordionItem, AccordionTrigger,
+    };
+
     #[component]
     pub fn BasicAccordionExample() -> Element {
         rsx! {
@@ -20,7 +21,7 @@ pub mod basic {
                     index: 0,
                     AccordionTrigger { "What is Dioxus?" }
                     AccordionContent {
-                        p { 
+                        p {
                             "Dioxus is a portable, performant, and ergonomic framework for building cross-platform user interfaces in Rust."
                         }
                     }
@@ -30,7 +31,7 @@ pub mod basic {
                     index: 1,
                     AccordionTrigger { "How does it compare to React?" }
                     AccordionContent {
-                        p { 
+                        p {
                             "Dioxus is heavily inspired by React but built from the ground up in Rust. It offers similar component-based architecture with hooks, but with the safety and performance benefits of Rust."
                         }
                     }
@@ -40,7 +41,7 @@ pub mod basic {
                     index: 2,
                     AccordionTrigger { "What platforms does it support?" }
                     AccordionContent {
-                        p { 
+                        p {
                             "Dioxus supports multiple platforms including Web, Desktop (Windows, macOS, Linux), Mobile (iOS, Android), and TUI (Terminal UI)."
                         }
                     }
@@ -54,8 +55,10 @@ pub mod basic {
 pub mod multiple {
     // ANCHOR: multiple
     use dioxus::prelude::*;
-    use laminar_blocks::components::accordion::{Accordion, AccordionContent, AccordionItem, AccordionTrigger};
-    
+    use laminar_blocks::components::accordion::{
+        Accordion, AccordionContent, AccordionItem, AccordionTrigger,
+    };
+
     #[component]
     pub fn MultipleOpenAccordionExample() -> Element {
         rsx! {

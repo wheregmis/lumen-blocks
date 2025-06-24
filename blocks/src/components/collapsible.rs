@@ -27,13 +27,15 @@ pub fn Collapsible(props: CollapsibleProps) -> Element {
     // Generate unique ID if not provided
     let collapsible_id = use_unique_id();
     let id_value = use_memo(move || {
-        props.id.clone().unwrap_or_else(|| collapsible_id.peek().clone())
+        props
+            .id
+            .clone()
+            .unwrap_or_else(|| collapsible_id.peek().clone())
     });
 
     let collapsible_classes = vec![
         // Base classes - clean container styling
         "w-full border border-border rounded-lg",
-        
         // Additional classes passed by the user
         props.class.as_deref().unwrap_or(""),
     ]
@@ -41,7 +43,7 @@ pub fn Collapsible(props: CollapsibleProps) -> Element {
     .filter(|s| !s.is_empty())
     .collect::<Vec<_>>()
     .join(" ");
-    
+
     rsx! {
         PrimitiveCollapsible {
             id: id_value.peek().clone(),
@@ -72,13 +74,16 @@ pub fn CollapsibleTrigger(props: CollapsibleTriggerProps) -> Element {
     // Generate unique ID if not provided
     let trigger_id = use_unique_id();
     let id_value = use_memo(move || {
-        props.id.clone().unwrap_or_else(|| trigger_id.peek().clone())
+        props
+            .id
+            .clone()
+            .unwrap_or_else(|| trigger_id.peek().clone())
     });
 
     let trigger_classes = vec![
         // Base classes
         "flex w-full items-center justify-between py-4 px-4 font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180",
-        
+
         // Additional classes passed by the user
         props.class.as_deref().unwrap_or(""),
     ]
@@ -86,14 +91,14 @@ pub fn CollapsibleTrigger(props: CollapsibleTriggerProps) -> Element {
     .filter(|s| !s.is_empty())
     .collect::<Vec<_>>()
     .join(" ");
-    
+
     rsx! {
         PrimitiveCollapsibleTrigger {
             id: id_value.peek().clone(),
             class: trigger_classes,
-            
+
             {props.children}
-            
+
             // Chevron icon
             ChevronDown {
                 class: "h-4 w-4 shrink-0 transition-transform duration-200 data-[state=open]:rotate-180"
@@ -123,13 +128,16 @@ pub fn CollapsibleContent(props: CollapsibleContentProps) -> Element {
     // Generate unique ID if not provided
     let content_id = use_unique_id();
     let id_value = use_memo(move || {
-        props.id.clone().unwrap_or_else(|| content_id.peek().clone())
+        props
+            .id
+            .clone()
+            .unwrap_or_else(|| content_id.peek().clone())
     });
 
     let content_classes = vec![
         // Base classes - shadcn ui inspired content styling
         "overflow-hidden text-sm px-4 data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down",
-        
+
         // Additional classes passed by the user
         props.class.as_deref().unwrap_or(""),
     ]
@@ -137,7 +145,7 @@ pub fn CollapsibleContent(props: CollapsibleContentProps) -> Element {
     .filter(|s| !s.is_empty())
     .collect::<Vec<_>>()
     .join(" ");
-    
+
     rsx! {
         PrimitiveCollapsibleContent {
             id: id_value.peek().clone(),

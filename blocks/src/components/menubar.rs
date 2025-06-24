@@ -1,7 +1,8 @@
 use dioxus_lib::prelude::*;
 use dioxus_primitives::menubar::{
-    Menubar as PrimitiveMenubar, MenubarMenu as PrimitiveMenubarMenu, MenubarTrigger as PrimitiveMenubarTrigger,
-    MenubarContent as PrimitiveMenubarContent, MenubarItem as PrimitiveMenubarItem,
+    Menubar as PrimitiveMenubar, MenubarContent as PrimitiveMenubarContent,
+    MenubarItem as PrimitiveMenubarItem, MenubarMenu as PrimitiveMenubarMenu,
+    MenubarTrigger as PrimitiveMenubarTrigger,
 };
 
 /// Menubar main container, styled with Tailwind
@@ -14,7 +15,8 @@ pub struct MenubarProps {
 
 #[component]
 pub fn Menubar(props: MenubarProps) -> Element {
-    let default_classes = "flex items-center gap-1 px-1 py-1 border border-border bg-background rounded-md shadow-sm";
+    let default_classes =
+        "flex items-center gap-1 px-1 py-1 border border-border bg-background rounded-md shadow-sm";
     let class = if let Some(extra) = &props.class {
         format!("{} {}", extra, default_classes)
     } else {

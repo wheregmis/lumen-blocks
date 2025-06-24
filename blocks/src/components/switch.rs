@@ -22,27 +22,27 @@ pub struct SwitchProps {
     /// Whether the switch is checked
     #[props(default = Signal::new(false))]
     pub checked: Signal<bool>,
-    
+
     /// Callback for when the switch is toggled
     #[props(default)]
     pub on_checked_change: Option<EventHandler<bool>>,
-    
+
     /// Whether the switch is disabled
     #[props(default)]
     pub disabled: ReadOnlySignal<bool>,
-    
+
     /// Size of the switch
     #[props(default)]
     pub size: SwitchSize,
-    
+
     /// Optional ID for the switch
     #[props(default)]
     pub id: ReadOnlySignal<Option<String>>,
-    
+
     /// Accessible label for the switch
     #[props(default)]
     pub aria_label: Option<String>,
-    
+
     #[props(extends = GlobalAttributes)]
     pub attributes: Vec<Attribute>,
 }
@@ -53,29 +53,30 @@ pub fn Switch(props: SwitchProps) -> Element {
     // Generate unique ID if not provided
     let switch_id = use_unique_id();
     let id_value = use_id_or(switch_id, props.id);
-    
+
     // Determine size-specific classes
-    let (switch_classes, thumb_size_classes, thumb_translate_x_off, thumb_translate_x_on) = match props.size {
-        SwitchSize::Small => (
-            "h-[1.25rem] w-[2.25rem]", 
-            "h-[1rem] w-[1rem]",
-            "translate-x-[0rem]",
-            "translate-x-[1rem]"
-        ),
-        SwitchSize::Large => (
-            "h-[1.75rem] w-[3.5rem]", 
-            "h-[1.5rem] w-[1.5rem]",
-            "translate-x-[0rem]",
-            "translate-x-[1.75rem]"
-        ),
-        SwitchSize::Medium => (
-            "h-[1.5rem] w-[2.75rem]", 
-            "h-[1.25rem] w-[1.25rem]",
-            "translate-x-[0rem]",
-            "translate-x-[1.25rem]"
-        ),
-    };
-    
+    let (switch_classes, thumb_size_classes, thumb_translate_x_off, thumb_translate_x_on) =
+        match props.size {
+            SwitchSize::Small => (
+                "h-[1.25rem] w-[2.25rem]",
+                "h-[1rem] w-[1rem]",
+                "translate-x-[0rem]",
+                "translate-x-[1rem]",
+            ),
+            SwitchSize::Large => (
+                "h-[1.75rem] w-[3.5rem]",
+                "h-[1.5rem] w-[1.5rem]",
+                "translate-x-[0rem]",
+                "translate-x-[1.75rem]",
+            ),
+            SwitchSize::Medium => (
+                "h-[1.5rem] w-[2.75rem]",
+                "h-[1.25rem] w-[1.25rem]",
+                "translate-x-[0rem]",
+                "translate-x-[1.25rem]",
+            ),
+        };
+
     // Build full switch classes
     let full_switch_classes = vec![
         // Base classes
@@ -91,10 +92,11 @@ pub fn Switch(props: SwitchProps) -> Element {
     .filter(|s| !s.is_empty())
     .collect::<Vec<_>>()
     .join(" ");
-    
+
     // Build thumb classes with dynamic position based on checked state
-    let full_thumb_classes = move || {
-        vec![
+    let full_thumb_classes =
+        move || {
+            vec![
             // Base classes
             "pointer-events-none inline-block transform rounded-full bg-background shadow ring-0",
             // Improved transition for smoother animation
@@ -105,15 +107,15 @@ pub fn Switch(props: SwitchProps) -> Element {
             if (props.checked)() { thumb_translate_x_on } else { thumb_translate_x_off },
         ]
         .join(" ")
-    };
-    
+        };
+
     // Handler for change events
     let on_change = move |checked: bool| {
         if let Some(handler) = &props.on_checked_change {
             handler.call(checked);
         }
     };
-    
+
     rsx! {
         PrimitiveSwitch {
             id: id_value,
@@ -122,7 +124,7 @@ pub fn Switch(props: SwitchProps) -> Element {
             on_checked_change: on_change,
             disabled: (props.disabled)(),
             aria_label: props.aria_label.clone(),
-            
+
             SwitchThumb {
                 class: full_thumb_classes(),
                 // Add ARIA attributes for better accessibility

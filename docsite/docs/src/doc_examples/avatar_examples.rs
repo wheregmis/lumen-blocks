@@ -1,19 +1,18 @@
 #![allow(non_snake_case)]
 
-
 pub use basic::BasicAvatarExample;
-pub use sizes::SizeVariationsExample;
 pub use fallbacks::ErrorStateExample;
 pub use groups::AvatarGroupExample;
+pub use sizes::SizeVariationsExample;
 pub use state::AvatarStateExample;
 
 pub mod basic {
     // ANCHOR: basic
     use dioxus::prelude::*;
     use laminar_blocks::components::avatar::{Avatar, AvatarFallback, AvatarImage};
-    
+
     const PERSON_1: Asset = asset!("/assets/person-1.avif");
-    
+
     #[component]
     pub fn BasicAvatarExample() -> Element {
         rsx! {
@@ -26,7 +25,7 @@ pub mod basic {
 
                     AvatarFallback { "DX" }
                 }
-                
+
                 div { class: "text-sm text-muted-foreground",
                     p { "Avatar with image and fallback" }
                 }
@@ -40,9 +39,9 @@ pub mod sizes {
     // ANCHOR: sizes
     use dioxus::prelude::*;
     use laminar_blocks::components::avatar::{Avatar, AvatarFallback, AvatarImage};
-    
+
     const PERSON_1: Asset = asset!("/assets/person-1.avif");
-    
+
     #[component]
     pub fn SizeVariationsExample() -> Element {
         rsx! {
@@ -50,14 +49,14 @@ pub mod sizes {
                 // Small avatar
                 Avatar {
                     class: "h-8 w-8",
-                    
+
                     AvatarImage {
                         src: PERSON_1,
                         alt: "Small avatar",
                     }
                     AvatarFallback { class: "text-xs", "SM" }
                 }
-                
+
                 // Default/Medium avatar
                 Avatar {
                     AvatarImage {
@@ -66,22 +65,22 @@ pub mod sizes {
                     }
                     AvatarFallback { "MD" }
                 }
-                
+
                 // Large avatar
                 Avatar {
                     class: "h-16 w-16",
-                    
+
                     AvatarImage {
                         src: PERSON_1,
                         alt: "Large avatar",
                     }
                     AvatarFallback { class: "text-lg", "LG" }
                 }
-                
+
                 // Extra large avatar
                 Avatar {
                     class: "h-20 w-20",
-                    
+
                     AvatarImage {
                         src: PERSON_1,
                         alt: "Extra large avatar",
@@ -98,7 +97,7 @@ pub mod fallbacks {
     // ANCHOR: fallbacks
     use dioxus::prelude::*;
     use laminar_blocks::components::avatar::{Avatar, AvatarFallback, AvatarImage};
-    
+
     #[component]
     pub fn ErrorStateExample() -> Element {
         rsx! {
@@ -111,7 +110,7 @@ pub mod fallbacks {
                     }
                     AvatarFallback { "JD" }
                 }
-                
+
                 // Avatar with emoji fallback
                 Avatar {
                     AvatarImage {
@@ -120,25 +119,25 @@ pub mod fallbacks {
                     }
                     AvatarFallback { "👤" }
                 }
-                
+
                 // Avatar with icon-style fallback
                 Avatar {
                     AvatarImage {
                         src: "https://invalid-url.example/image.jpg",
-                        alt: "Invalid image",  
+                        alt: "Invalid image",
                     }
                     AvatarFallback { "?" }
                 }
-                
+
                 // Avatar with colorful fallback
                 Avatar {
                     AvatarImage {
                         src: "https://invalid-url.example/image.jpg",
                         alt: "Invalid image",
                     }
-                    AvatarFallback { 
+                    AvatarFallback {
                         class: "bg-blue-500 text-white",
-                        "AB" 
+                        "AB"
                     }
                 }
             }
@@ -151,11 +150,11 @@ pub mod groups {
     // ANCHOR: groups
     use dioxus::prelude::*;
     use laminar_blocks::components::avatar::{Avatar, AvatarFallback, AvatarImage};
-    
+
     const PERSON_1: Asset = asset!("/assets/person-1.avif");
     const PERSON_2: Asset = asset!("/assets/person-2.jpeg");
     const PERSON_3: Asset = asset!("/assets/person-3.avif");
-    
+
     #[component]
     pub fn AvatarGroupExample() -> Element {
         rsx! {
@@ -194,7 +193,7 @@ pub mod groups {
                         }
                     }
                 }
-                
+
                 // Spaced group
                 div {
                     h3 { class: "text-lg font-medium mb-2", "Spaced Group" }
@@ -235,9 +234,9 @@ pub mod state {
     // ANCHOR: state
     use dioxus::prelude::*;
     use laminar_blocks::components::avatar::{Avatar, AvatarFallback, AvatarImage};
-    
+
     const PERSON_1: Asset = asset!("/assets/person-1.avif");
-    
+
     #[component]
     pub fn AvatarStateExample() -> Element {
         let mut avatar_state_1 = use_signal(|| "No state yet".to_string());
@@ -258,16 +257,16 @@ pub mod state {
 
                         AvatarFallback { "DX" }
                     }
-                    
+
                     div { class: "text-sm",
                         p { "Working avatar with state tracking" }
                     }
                 }
-                
+
                 div { class: "p-2 bg-muted rounded text-sm",
                     code { "{avatar_state_1}" }
                 }
-                
+
                 div { class: "flex items-center gap-4",
                     Avatar {
                         on_state_change: move |state| {
@@ -281,12 +280,12 @@ pub mod state {
 
                             AvatarFallback { "ER" }
                     }
-                    
+
                     div { class: "text-sm",
                         p { "Avatar with invalid image (triggers error state)" }
                     }
                 }
-                
+
                 div { class: "p-2 bg-muted rounded text-sm",
                     code { "{avatar_state_2}" }
                 }
