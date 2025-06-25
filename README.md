@@ -7,7 +7,7 @@
 -----
 <br/>
 
-Lumen is an ARIA-accessible, styled, opinionated component library for Dioxus based on the [shadcn](https://ui.shadcn.com) project, and built on top of the [Dioxus Primitives](https://github.com/DioxusLabs/components) unstyled components library.
+Lumen is an ARIA-accessible, styled, opinionated component library for Dioxus based on the [shadcn UI](https://ui.shadcn.com) project, and built on top of the [Dioxus Primitives](https://github.com/DioxusLabs/components) unstyled components library.
 
 > [!IMPORTANT]
 > This library is still experimental. Expect bugs and breaking changes until a stable release is made.
@@ -53,6 +53,13 @@ just dev-docsite
 just dev-docsite-tailwind
 ```
 
+## Acknowledgements
+
+This project stands in the shoulders of giants, and we would like to acknowledge the following open-source projects:
+
+- [Dioxus Primitives](https://github.com/DioxusLabs/components) for the unstyled components library.
+- [shadcn UI](https://ui.shadcn.com) for the inspiration and overall structure.
+- [Dioxus](https://github.com/dioxuslabs/dioxus) for the awesome framework, and several code examples that helped the development of this library.
 
 ## License
 
