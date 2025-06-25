@@ -55,6 +55,9 @@ just dev-docsite-tailwind
 
 
 ## License
-This project is licensed under the [MIT license](./LICENSE).
+
+All source-code for this project is licensed under the [MIT license](./LICENSE).
 
 Any contribution intentionally submitted for inclusion in this repository, by you, shall be licensed as MIT, without any additional terms or conditions.
+
+© All rights are reserved to Leaf Computer Corporation for the name "Lumen Blocks", and the "Lumen Blocks" logo.
