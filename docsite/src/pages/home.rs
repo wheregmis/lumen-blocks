@@ -142,7 +142,7 @@ pub fn Home() -> Element {
                             // Menu bar
                             ComponentCard {
                                 title: "Menubar".to_string(),
-                                doc_route: Route::Docs01 { child: docs::router_01::BookRoute::ProgressIndex { section: Default::default() } },
+                                doc_route: Route::Docs01 { child: docs::router_01::BookRoute::MenubarIndex { section: Default::default() } },
                                 col_span: Some("md:col-span-2".to_string()),
                                 MenubarWithIconsExample {  }
                             }
