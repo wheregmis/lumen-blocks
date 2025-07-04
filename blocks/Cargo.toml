@@ -12,7 +12,8 @@ homepage = "https://lumenblocks.dev"
 repository = "https://github.com/Leaf-Computer/lumen-blocks"
 
 [dependencies]
-dioxus-lib.workspace = true
+# dioxus = { git = "https://github.com/DioxusLabs/dioxus.git", branch = "main" }
+dioxus-lib = { git = "https://github.com/DioxusLabs/dioxus.git", branch = "main" }
 dioxus-time = "=0.1.0-alpha.1"
 dioxus-primitives = { git = "https://github.com/DioxusLabs/components", package = "dioxus-primitives", rev = "254ddadb35b2c6eac10902438edeff8a2276f1d2" }
 tracing.workspace = true
